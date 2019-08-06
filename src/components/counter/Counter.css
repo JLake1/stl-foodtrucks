@@ -1,3 +1,13 @@
+.App {
+    background-color: cadetblue;
+    height: 100vh;
+    padding-top: 20px;
+}
+
+.wrapper {
+    background-color: #fff;
+    padding: 40px;
+}
 button {
     background-color: green;
     font-size: 16px;
@@ -9,4 +19,10 @@ button {
 .count {
     font-size: 50px;
     padding: 15px 30px;
+}
+
+.wrapper {
+    width: 980px;
+    display: block;
+    margin: 0 auto;
 }
