@@ -21,3 +21,9 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+**/todo
+**/backend/foodtrucks/src/main/java/hello_world/
+/src/**/counter
+**/src/components/todo/
+*.Counter.jsx
