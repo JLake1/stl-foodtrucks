@@ -16,8 +16,8 @@
 //        http
 //                .csrf().disable()
 //                .authorizeRequests()
-//                .antMatchers(HttpMethod.OPTIONS,"http://localhost:4200/").permitAll()//allow CORS option calls
-//                .antMatchers(HttpMethod.OPTIONS,"http://localhost:4200/").permitAll()
+//                .antMatchers(HttpMethod.OPTIONS,"*").permitAll()
+//                .antMatchers(HttpMethod.GET,"*").permitAll()
 //                    .anyRequest().authenticated()
 //                    .and()
 //                .formLogin()
