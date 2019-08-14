@@ -81,16 +81,16 @@ class ListTrucksComponent extends Component {
         console.log('render')
         return (
             <div>
-                <h1>List Trucks</h1>
+                <h1>My Trucks</h1>
                 {this.state.message && <div className="alert alert-success">{this.state.message}</div>}
                 <div className="container">
                     <table className="table">
                         <thead>
                             <tr>
                                 {/* <th>id</th> */}
-                                <th>description</th>
-                                <th>Is Completed?</th>
-                                <th>Target Date</th>
+                                <th>Truck Name</th>
+                                {/* <th>Is Completed?</th> */}
+                                <th>Test Date</th>
                                 <th>Update</th>
                                 <th>Delete</th>
                             </tr>
@@ -102,7 +102,7 @@ class ListTrucksComponent extends Component {
                                     <tr key={truck.id}>
                                         {/* <td>{truck.id}</td> */}
                                         <td>{truck.description}</td>
-                                        <td>{truck.done.toString()}</td>
+                                        {/* <td>{truck.done.toString()}</td> */}
                                         <td>{moment(truck.targetDate).format('MM-DD-YY')}</td>   
                                         <td><button className="btn btn-success" onClick={() => this.updateTruckClicked(truck.id)}>Update</button></td>
                                         <td><button className="btn btn-warning" onClick={() => this.deleteTruckClicked(truck.id)}>Delete</button></td>

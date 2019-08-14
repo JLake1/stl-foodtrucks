@@ -1,3 +1,8 @@
+h1{
+  padding: 20px 0 14px 0;
+  text-transform: uppercase;
+}
+
 .footer {
   position: absolute;
   bottom: 0;

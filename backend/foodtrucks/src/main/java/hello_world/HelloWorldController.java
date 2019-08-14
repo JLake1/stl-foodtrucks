@@ -1,5 +1,4 @@
-package edu.launchcode.foodtrucks;
-
+import hello_world.HelloWorldBean;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

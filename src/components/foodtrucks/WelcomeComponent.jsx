@@ -22,10 +22,10 @@ class WelcomeComponent extends Component {
                     Welcome {this.props.match.params.name}. 
                     You can manage your trucks <Link to="/trucks">here</Link>.
                 </div>
-                <div className="container">
+                {/* <div className="container">
                     Click here to get a customized welcome message
                     <button className="btn btn-success" onClick={this.retrieveWelcomeMessage}>Get Welcome Message</button>
-                </div>
+                </div> */}
                 <div className="container">
                     {this.state.welcomeMessage}
                 </div>
@@ -34,15 +34,15 @@ class WelcomeComponent extends Component {
     }
 
     retrieveWelcomeMessage() {
-        // HelloWorldService.executeHelloWorldService()
-        // .then( response => this.handleSuccessfulResponse(response) )
-
-        // HelloWorldService.executeHelloWorldBeanService()
-        // .then( response => this.handleSuccessfulResponse(response) )
-
-        HelloWorldService.executeHelloWorldPathVariableService(this.props.match.params.name)
+        HelloWorldService.executeHelloWorldService()
         .then( response => this.handleSuccessfulResponse(response) )
-        .catch(error => this.handleError(error))
+
+        HelloWorldService.executeHelloWorldBeanService()
+        .then( response => this.handleSuccessfulResponse(response) )
+
+        // HelloWorldService.executeHelloWorldPathVariableService(this.props.match.params.name)
+        // .then( response => this.handleSuccessfulResponse(response) )
+        // .catch(error => this.handleError(error))
     }
 
     handleSuccessfulResponse(response) {
