@@ -1,35 +1,34 @@
-import Axios from "axios";
+import axios from 'axios'
 
 class HelloWorldService {
     
     executeHelloWorldService() {
-        return Axios.get('http://localhost:8080/hello-world')
         //console.log('executed service')
-    };
+        return axios.get('http://localhost:8080/hello-world');        
+    }
 
     executeHelloWorldBeanService() {
-        return Axios.get('http://localhost:8080/hello-world-bean')
         //console.log('executed service')
-    };
+        return axios.get('http://localhost:8080/hello-world-bean');        
+    }
 
     executeHelloWorldPathVariableService(name) {
-        // let username = 'usernameOwner'
+        //console.log('executed service')
+        // let username = 'in28minutes'
         // let password = 'dummy'
 
-        // let basicAuthHeader = 'Basic ' + window.btoa(username + ":" + password)
+        // let basicAuthHeader = 'Basic ' +  window.btoa(username + ":" + password)
 
-        return Axios.get(`http://localhost:8080/hello-world/path-variable/${name}`
+        return axios.get(`http://localhost:8080/hello-world/path-variable/${name}`
         // , 
         //     {
         //         headers : {
         //             authorization: basicAuthHeader
         //         }
         //     }
-        );
- 
+        );        
+    }
 
-        //console.log('executed service')
-    };
-};
+}
 
-export default new HelloWorldService();
+export default new HelloWorldService()
