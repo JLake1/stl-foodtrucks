@@ -22,7 +22,7 @@ class FoodtrucksApp extends Component {
                         <Route path="/login" component={LoginComponent}/>
                         <AuthenticatedRoute path="/welcome/:name" component={WelcomeComponent}/>
                         <AuthenticatedRoute path="/trucks/:id" component={TruckComponent}/>
-                        <AuthenticatedRoute path="/trucks" component={ListTrucksComponent}/>
+                        <Route path="/trucks" component={ListTrucksComponent}/>
                         <AuthenticatedRoute path="/logout" component={LogoutComponent}/>
                         <Route component={ErrorComponent}/>
                         </Switch>
