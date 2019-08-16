@@ -1,10 +1,20 @@
 package edu.launchcode.foodtrucks.truck;
 
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import java.util.Date;
 import java.util.Objects;
 
+@Entity
 public class Truck {
-    private long id;
+
+    @Id
+    @GeneratedValue
+    private Long id;
+
     private String username;
     private String description;
     // TODO: join with trucks' foreign key
@@ -23,11 +33,11 @@ public class Truck {
         this.isDone = isDone;
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

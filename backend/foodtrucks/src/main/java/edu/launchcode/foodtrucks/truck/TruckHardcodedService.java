@@ -10,7 +10,7 @@ import java.util.List;
 public class TruckHardcodedService {
 
     private static List<Truck> trucks = new ArrayList();
-    private static int idCounter = 0;
+    private static long idCounter = 0;
 
     static {
         trucks.add(new Truck(++idCounter, "JoeL123", "Mike's Pizza", new Date(), false));
