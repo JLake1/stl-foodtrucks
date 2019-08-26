@@ -10,6 +10,7 @@ class TruckComponent extends Component {
         super(props)
         this.state = {
             id : this.props.match.params.id,
+            truckName : "",
             description : "",
             targetDate : moment(new Date()).format('YYYY-MM-DD') 
         }
@@ -29,6 +30,7 @@ class TruckComponent extends Component {
         
         TruckDataService.retrieveTruck(username, this.state.id)
             .then(response => this.setState({
+                truckName: response.data.truckName,
                 description: response.data.description,
                 targetDate: moment(response.data.targetDate).format('YYYY-MM-DD')
             }))
@@ -54,6 +56,7 @@ class TruckComponent extends Component {
         
         let truck = {
                 id: this.state.id,
+                truckName: values.truckName,
                 description: values.description,
                 targetDate: values.targetDate
         }
@@ -74,13 +77,13 @@ class TruckComponent extends Component {
     }
 
     render() {
-        let {description,targetDate} = this.state
+        let {truckName,description,targetDate} = this.state
         return (
             <div>
                 <h1>Truck</h1>
                 <div className="container">
                     <Formik
-                        initialValues={{description,targetDate}}
+                        initialValues={{truckName,description,targetDate}}
                         onSubmit={this.onSubmit}
                         validateOnChange={false}
                         validateOnBlur={false}
@@ -93,13 +96,17 @@ class TruckComponent extends Component {
                                     <ErrorMessage name="description" component="div" className="alert alert-warning"/>
                                     <ErrorMessage name="targetDate" component="div" className="alert alert-warning"/>
                                     <fieldset>
+                                        <label>Truck Name</label>
+                                        <Field className="form-control" type="text" name="truckName"/>
+                                    </fieldset>                                    
+                                    <fieldset>
                                         <label>Description</label>
                                         <Field className="form-control" type="text" name="description"/>
                                     </fieldset>
-                                    <fieldset>
+                                    {/* <fieldset>
                                         <label>Date</label>
                                         <Field className="form-control" type="date" name="targetDate"/>
-                                    </fieldset>
+                                    </fieldset> */}
                                     <button type="submit" className="btn btn-success">Save</button>
                                 </Form>
  

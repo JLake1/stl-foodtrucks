@@ -16,6 +16,7 @@ public class Truck {
     private Long id;
 
     private String username;
+    private String truckName;
     private String description;
     // TODO: join with trucks' foreign key
     private Date targetDate;
@@ -25,9 +26,10 @@ public class Truck {
 
     }
 
-    public Truck(long id, String username, String description, Date targetDate, boolean isDone) {
+    public Truck(long id, String username, String truckName, String description, Date targetDate, boolean isDone) {
         this.id = id;
         this.username = username;
+        this.truckName = truckName;
         this.description = description;
         this.targetDate = targetDate;
         this.isDone = isDone;
@@ -47,6 +49,14 @@ public class Truck {
 
     public void setUsername(String username) {
         this.username = username;
+    }
+
+    public String getTruckName() {
+        return truckName;
+    }
+
+    public void setTruckName(String truckName) {
+        this.truckName = truckName;
     }
 
     public String getDescription() {

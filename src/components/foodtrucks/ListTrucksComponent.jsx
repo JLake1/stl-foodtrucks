@@ -101,6 +101,7 @@ class ListTrucksComponent extends Component {
                                 truck =>
                                     <tr key={truck.id}>
                                         {/* <td>{truck.id}</td> */}
+                                        <td>{truck.truckName}</td>
                                         <td>{truck.description}</td>
                                         {/* <td>{truck.done.toString()}</td> */}
                                         <td>{moment(truck.targetDate).format('MM-DD-YY')}</td>   

@@ -13,10 +13,10 @@ public class TruckHardcodedService {
     private static long idCounter = 0;
 
     static {
-        trucks.add(new Truck(++idCounter, "JoeL123", "Mike's Pizza", new Date(), false));
-        trucks.add(new Truck(++idCounter, "JoeL123", "Sandwich Hut", new Date(), false));
-        trucks.add(new Truck(++idCounter, "JoeL123", "Tacorama", new Date(), false));
-        trucks.add(new Truck(++idCounter, "JoeL123", "Sample Truck", new Date(), false));
+//        trucks.add(new Truck(++idCounter, "JoeL123", "Mike's Pizza", new Date(), false));
+//        trucks.add(new Truck(++idCounter, "JoeL123", "Sandwich Hut", new Date(), false));
+//        trucks.add(new Truck(++idCounter, "JoeL123", "Tacorama", new Date(), false));
+//        trucks.add(new Truck(++idCounter, "JoeL123", "Sample Truck", new Date(), false));
 
     }
 
