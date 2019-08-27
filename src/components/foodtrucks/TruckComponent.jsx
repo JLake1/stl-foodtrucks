@@ -77,8 +77,8 @@ class TruckComponent extends Component {
         let {description,targetDate} = this.state
         return (
             <div>
-                <h1>Truck</h1>
-                <div className="container">
+                <h1>Add Event</h1>
+                <div className="container add-form">
                     <Formik
                         initialValues={{description,targetDate}}
                         onSubmit={this.onSubmit}
@@ -93,12 +93,12 @@ class TruckComponent extends Component {
                                     <ErrorMessage name="description" component="div" className="alert alert-warning"/>
                                     <ErrorMessage name="targetDate" component="div" className="alert alert-warning"/>
                                     <fieldset>
-                                        <label>Description</label>
+                                        <label>Address</label>
                                         <Field className="form-control" type="text" name="description"/>
                                     </fieldset>
                                     <fieldset>
                                         <label>Date</label>
-                                        <Field className="form-control" type="date" name="targetDate"/>
+                                        <Field className="form-control" type="datetime-local" name="targetDate"/>
                                     </fieldset>
                                     <button type="submit" className="btn btn-success">Save</button>
                                 </Form>
