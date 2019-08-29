@@ -2,17 +2,15 @@ import React, {Component} from 'react'
 import TruckDataService from '../../api/foodtrucks/TruckDataService.js'
 import AuthenticationService from './AuthenticationService.js'
 import moment from 'moment'
-import { userInfo } from 'os';
 
-class ListTrucksComponent extends Component {
+class OwnerProfileComponent extends Component {
     
     constructor(props){
         console.log('constructor')
         super(props)
         this.state = {
             trucks : [],
-            message : null,
-            userType : 'owner'
+            message : null
         }
 
         this.deleteTruckClicked = this.deleteTruckClicked.bind(this)
@@ -81,70 +79,43 @@ class ListTrucksComponent extends Component {
     
     render() {
         console.log('render')
-        console.log(this.state.userType)
         return (
             <div>
+                <h1>My Trucks</h1>
                 {this.state.message && <div className="alert alert-success">{this.state.message}</div>}
-                <div className="container">
-                <div className="row">     
-                    <div className="col-sm-12 owner-content">
-                    <h1>Upcoming Dates</h1> 
-                    
-                    <p>{this.state.userType && <div>{this.state.userType}</div>}</p>
-                    <table className="table table-hover" key="truck.id">
-                        <thead className="thead-dark">
+                <div className="container"> 
+                    <table className="table">
+                        <thead>
                             <tr> 
-                                <th>Address</th> 
-                                <th>Date</th>
-                                {/* <th>Update</th>
-                                <th>Delete</th> */}
-                                <th className="delete-col"></th>
+                                <th>Truck Name</th> 
+                                <th>Test Date</th>
+                                <th>Update</th>
+                                <th>Delete</th>
                             </tr>
                         </thead>
                         <tbody>
                         {
                             this.state.trucks.map (    
                                 truck =>
-<<<<<<< HEAD
-                                    <tr key={truck.id}>
-                                        {/* <td>{truck.id}</td> */}
-                                        <td>{truck.truckName}</td>
-                                        <td>{truck.description}</td>
-                                        {/* <td>{truck.done.toString()}</td> */}
+                                    <tr key={truck.id}> 
+                                        <td>{truck.description}</td> 
                                         <td>{moment(truck.targetDate).format('MM-DD-YY')}</td>   
-                                        <td><button className="btn btn-success" onClick={() => this.updateTruckClicked(truck.id)}>Update</button></td>
-                                        <td><button className="btn btn-warning" onClick={() => this.deleteTruckClicked(truck.id)}>Delete</button></td>
-=======
-                                    <tr key={truck.id}>  
-                                        
-                                        <td><a href="#">{truck.description}</a></td> 
-                                        <td>{moment(truck.targetDate).format('lll')}</td>   
                                         {/* <td><button className="btn update" onClick={() => this.updateTruckClicked(truck.id)}>Update</button></td> */}
-                                        {/* <td><button className="btn update" onClick={() => this.updateTruckClicked(truck.id)}><i class="material-icons-outlined">edit</i></button></td> */}
-                                        <td>
-                                        <button className="btn update" onClick={() => this.updateTruckClicked(truck.id)}><i class="material-icons">edit</i></button>
-                                            <button className="btn delete" onClick={() => this.deleteTruckClicked(truck.id)}><i class="material-icons">cancel</i></button>
-                                        </td>
->>>>>>> form-updates
+                                        <td><button className="btn update" onClick={() => this.updateTruckClicked(truck.id)}><i class="material-icons-outlined">edit</i></button></td>
+                                        <td><button className="btn btn-warning" onClick={() => this.deleteTruckClicked(truck.id)}>Delete</button></td>
                                     </tr>
                             )
                         }
                         </tbody>
                     </table>
-                    <div class="add ">
-                        <button className="btn btn-success" onClick={this.addTruckClicked}>Add Event</button>
+                    <div className="row">
+                        <button className="btn btn-success" onClick={this.addTruckClicked}>Add</button>
+
                     </div>
-                    </div>
-                    {/* end main content section */}
-                    {/* sidebar */}
-                    {/* <div className="col-sm-2 owner-sidebar">
-                        <h3>Sidebar</h3>
-                    </div> */}
-                    </div>
-            </div>
+                </div>
             </div>
         )
     }
 }
 
-export default ListTrucksComponent
+export default OwnerProfileComponent

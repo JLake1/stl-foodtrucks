@@ -80,8 +80,8 @@ class TruckComponent extends Component {
         let {truckName,description,targetDate} = this.state
         return (
             <div>
-                <h1>Truck</h1>
-                <div className="container">
+                <h1>Add Event</h1>
+                <div className="container add-form">
                     <Formik
                         initialValues={{truckName,description,targetDate}}
                         onSubmit={this.onSubmit}
@@ -96,17 +96,26 @@ class TruckComponent extends Component {
                                     <ErrorMessage name="description" component="div" className="alert alert-warning"/>
                                     <ErrorMessage name="targetDate" component="div" className="alert alert-warning"/>
                                     <fieldset>
+<<<<<<< HEAD
                                         <label>Truck Name</label>
                                         <Field className="form-control" type="text" name="truckName"/>
                                     </fieldset>                                    
                                     <fieldset>
                                         <label>Description</label>
+=======
+                                        <label>Address</label>
+>>>>>>> form-updates
                                         <Field className="form-control" type="text" name="description"/>
                                     </fieldset>
                                     {/* <fieldset>
                                         <label>Date</label>
+<<<<<<< HEAD
                                         <Field className="form-control" type="date" name="targetDate"/>
                                     </fieldset> */}
+=======
+                                        <Field className="form-control" type="datetime-local" name="targetDate"/>
+                                    </fieldset>
+>>>>>>> form-updates
                                     <button type="submit" className="btn btn-success">Save</button>
                                 </Form>
  

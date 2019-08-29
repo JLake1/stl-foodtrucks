@@ -9,17 +9,16 @@ class LoginComponent extends Component {
         this.state = {
             username: '',
             password: '',
+            userType: '',
             hasLoginFailed: false,
             showSuccessMessage: false
         }
-        // this.handleUsernameChange = this.handleUsernameChange.bind(this)
-        // this.handlePasswordChange = this.handlePasswordChange.bind(this)
+
         this.handleChange = this.handleChange.bind(this)
         this.loginClicked = this.loginClicked.bind(this)
     }
 
     handleChange(event) {
-        //console.log(this.state);
         this.setState(
             {
                 [event.target.name]
@@ -28,29 +27,14 @@ class LoginComponent extends Component {
         )
     }
 
-    // handleUsernameChange(event) {
-    //     console.log(event.target.name);
-    //     this.setState(
-    //         {
-    //             [event.target.name]
-    //               :event.target.value
-    //         }
-    //     )
-    // }
-
-    // handlePasswordChange(event) {
-    //     console.log(event.target.value);
-    //     this.setState({password:event.target.value})
-    // }
-
     loginClicked() {
  
-
         AuthenticationService
-        .executeJwtAuthenticationService(this.state.username, this.state.password)
-        .then((response) => {
-            AuthenticationService.registerSuccessfulLoginForJwt(this.state.username,response.data.token)
-            this.props.history.push(`/welcome/${this.state.username}`)
+        .executeJwtAuthenticationService(this.state.username, this.state.password, this.state.userType)
+        .then((response) => { 
+            AuthenticationService.registerSuccessfulLoginForJwt(this.state.username,response.data.token, this.state.userType)
+            // this.props.history.push(`/welcome/${this.state.username}`)
+            this.props.history.push(`/trucks`)
         }).catch( () =>{
             this.setState({showSuccessMessage:false})
             this.setState({hasLoginFailed:true})
@@ -67,8 +51,15 @@ class LoginComponent extends Component {
                     {this.state.hasLoginFailed && <div className="alert alert-warning">Invalid Credentials</div>}
                     {this.state.showSuccessMessage && <div>Login Sucessful</div>}
                     {/*<ShowLoginSuccessMessage showSuccessMessage={this.state.showSuccessMessage}/>*/}
+                    
                     User Name: <input type="text" name="username" value={this.state.username} onChange={this.handleChange}/>
-                    Password: <input type="password" name="password" value={this.state.password}  onChange={this.handleChange}/>
+                    Password: <input type="password" name="password" value={this.state.password}  onChange={this.handleChange}/> 
+                    Type: <input type="text" id="owner" name="userType" value={this.state.userType} onChange={this.handleChange} />
+                    
+           
+                    {/* <div><input type="radio" id="owner" name="userType" value={this.state.userType} onChange={this.handleChange} />
+                        <label for="owner">Owner</label>
+                    </div> */}
                     <button className="btn btn-success" onClick={this.loginClicked}>Login</button>
                 </div>
             </div>
