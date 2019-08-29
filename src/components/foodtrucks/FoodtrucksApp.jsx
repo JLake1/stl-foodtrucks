@@ -9,7 +9,7 @@ import OwnerProfileComponent from './OwnerProfileComponent.jsx'
 import HeaderComponent from './HeaderComponent.jsx'
 import FooterComponent from './FooterComponent.jsx'
 import TruckComponent from './TruckComponent.jsx'
-import ErrorComponent from './ErrorComponent.jsx'
+import ErrorComponent from './ErrorComponent.jsx' 
 
 class FoodtrucksApp extends Component {
     render() {
@@ -24,7 +24,7 @@ class FoodtrucksApp extends Component {
                         <AuthenticatedRoute path="/welcome/:name" component={WelcomeComponent}/>
                         <AuthenticatedRoute path="/trucks/:id" component={TruckComponent}/>
                         <Route path="/owner/my-profile" component={OwnerProfileComponent}/>
-                        <Route path="/trucks" component={ListTrucksComponent}/>
+                        <Route path="/trucks" component={ListTrucksComponent}/> 
                         <AuthenticatedRoute path="/logout" component={LogoutComponent}/>
                         <Route component={ErrorComponent}/>
                         </Switch>

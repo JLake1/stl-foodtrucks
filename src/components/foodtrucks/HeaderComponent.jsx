@@ -26,9 +26,9 @@ class HeaderComponent extends Component {
             // </header>
             <header>
                 <nav className="navbar navbar-expand-md navbar-dark bg-dark">
-                    <div class="row">
+                    <div className="row">
 
-                        <div class="col-sm-4">
+                        <div className="col-sm-4">
                         <ul className="navbar-nav">
                             {isUserLoggedIn && <li><Link className="nav-link" to="/welcome/usernameOwner">Home</Link></li>}
                             {isUserLoggedIn && <li><Link className="nav-link" to="/trucks">My Events</Link></li>}
@@ -38,11 +38,11 @@ class HeaderComponent extends Component {
                         </ul>
                         </div>
                         
-                        <div class="col-sm-4">
+                        <div className="col-sm-4">
                         <a href="/" className="navbar-brand">STL FOODTRUCKS</a>
                         </div>
 
-                        <div class="col-sm-4">
+                        <div className="col-sm-4">
                         <ul className="navbar-nav login">
                             {!isUserLoggedIn && <li><Link className="nav-link" to="/login">Login</Link></li>}
                             {isUserLoggedIn && <li><Link className="nav-link" to="/logout" onClick={AuthenticationService.logout}>Logout</Link></li>}

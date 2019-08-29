@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import TruckDataService from '../../api/foodtrucks/TruckDataService.js'
 import AuthenticationService from './AuthenticationService.js'
 import moment from 'moment'
+import { userInfo } from 'os';
 
 class ListTrucksComponent extends Component {
     
@@ -10,7 +11,8 @@ class ListTrucksComponent extends Component {
         super(props)
         this.state = {
             trucks : [],
-            message : null
+            message : null,
+            userType : 'owner'
         }
 
         this.deleteTruckClicked = this.deleteTruckClicked.bind(this)
@@ -79,14 +81,17 @@ class ListTrucksComponent extends Component {
     
     render() {
         console.log('render')
+        console.log(this.state.userType)
         return (
             <div>
                 {this.state.message && <div className="alert alert-success">{this.state.message}</div>}
                 <div className="container">
                 <div className="row">     
                     <div className="col-sm-12 owner-content">
-                    <h1>Upcoming Dates</h1>
-                    <table className="table table-hover">
+                    <h1>Upcoming Dates</h1> 
+                    
+                    <p>{this.state.userType && <div>{this.state.userType}</div>}</p>
+                    <table className="table table-hover" key="truck.id">
                         <thead className="thead-dark">
                             <tr> 
                                 <th>Address</th> 
@@ -100,7 +105,8 @@ class ListTrucksComponent extends Component {
                         {
                             this.state.trucks.map (    
                                 truck =>
-                                    <tr key={truck.id}> 
+                                    <tr key={truck.id}>  
+                                        
                                         <td><a href="#">{truck.description}</a></td> 
                                         <td>{moment(truck.targetDate).format('lll')}</td>   
                                         {/* <td><button className="btn update" onClick={() => this.updateTruckClicked(truck.id)}>Update</button></td> */}
