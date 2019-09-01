@@ -5,7 +5,8 @@ import LoginComponent from './LoginComponent.jsx'
 import LogoutComponent from './LogoutComponent.jsx'
 import WelcomeComponent from './WelcomeComponent.jsx'
 import ListTrucksComponent from './ListTrucksComponent.jsx'
-import OwnerProfileComponent from './OwnerProfileComponent.jsx'
+import ListEventsComponent from './ListEventsComponent.jsx'
+// import OwnerProfileComponent from './OwnerProfileComponent.jsx'
 import HeaderComponent from './HeaderComponent.jsx'
 import FooterComponent from './FooterComponent.jsx'
 import TruckComponent from './TruckComponent.jsx'
@@ -23,7 +24,8 @@ class FoodtrucksApp extends Component {
                         <Route path="/login" component={LoginComponent}/>
                         <AuthenticatedRoute path="/welcome/:name" component={WelcomeComponent}/>
                         <AuthenticatedRoute path="/trucks/:id" component={TruckComponent}/>
-                        <Route path="/owner/my-profile" component={OwnerProfileComponent}/>
+                        {/* <Route path="/owner/my-profile" component={OwnerProfileComponent}/> */}
+                        <Route path="/events" component={ListEventsComponent}/>
                         <Route path="/trucks" component={ListTrucksComponent}/> 
                         <AuthenticatedRoute path="/logout" component={LogoutComponent}/>
                         <Route component={ErrorComponent}/>

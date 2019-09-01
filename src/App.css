@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-@import url('https://fonts.googleapis.com/css?family=Lexend+Exa|Red+Hat+Text&display=swap');
-=======
 @import url('https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined');
 @import url('https://fonts.googleapis.com/css?family=Montserrat|Red+Hat+Text|Lexend+Exa');
 
@@ -23,7 +20,6 @@ body {
 .navbar-nav li {
   margin: 0 12px 0 0;
 }
->>>>>>> form-updates
 
 h1{
   padding: 20px 0 14px 0;

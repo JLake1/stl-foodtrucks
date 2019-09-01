@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import TruckDataService from '../../api/foodtrucks/TruckDataService.js'
+import EventDataService from '../../api/foodtrucks/EventDataService.js'
 import AuthenticationService from './AuthenticationService.js'
 import moment from 'moment'
 import { userInfo } from 'os';
@@ -11,6 +12,7 @@ class ListTrucksComponent extends Component {
         super(props)
         this.state = {
             trucks : [],
+            events : [],
             message : null,
             userType : 'owner'
         }
@@ -84,14 +86,14 @@ class ListTrucksComponent extends Component {
         console.log(this.state.userType)
         return (
             <div>
+                {/* <div key={event.id}><p>{event.eventDate}</p></div> */}
                 {this.state.message && <div className="alert alert-success">{this.state.message}</div>}
                 <div className="container">
                 <div className="row">     
                     <div className="col-sm-12 owner-content">
                     <h1>Upcoming Dates</h1> 
-                    
-                    <p>{this.state.userType && <div>{this.state.userType}</div>}</p>
-                    <table className="table table-hover" key="truck.id">
+ >
+                    <table className="table table-hover">
                         <thead className="thead-dark">
                             <tr> 
                                 <th>Address</th> 
@@ -105,16 +107,6 @@ class ListTrucksComponent extends Component {
                         {
                             this.state.trucks.map (    
                                 truck =>
-<<<<<<< HEAD
-                                    <tr key={truck.id}>
-                                        {/* <td>{truck.id}</td> */}
-                                        <td>{truck.truckName}</td>
-                                        <td>{truck.description}</td>
-                                        {/* <td>{truck.done.toString()}</td> */}
-                                        <td>{moment(truck.targetDate).format('MM-DD-YY')}</td>   
-                                        <td><button className="btn btn-success" onClick={() => this.updateTruckClicked(truck.id)}>Update</button></td>
-                                        <td><button className="btn btn-warning" onClick={() => this.deleteTruckClicked(truck.id)}>Delete</button></td>
-=======
                                     <tr key={truck.id}>  
                                         
                                         <td><a href="#">{truck.description}</a></td> 
@@ -125,7 +117,6 @@ class ListTrucksComponent extends Component {
                                         <button className="btn update" onClick={() => this.updateTruckClicked(truck.id)}><i class="material-icons">edit</i></button>
                                             <button className="btn delete" onClick={() => this.deleteTruckClicked(truck.id)}><i class="material-icons">cancel</i></button>
                                         </td>
->>>>>>> form-updates
                                     </tr>
                             )
                         }
@@ -142,7 +133,74 @@ class ListTrucksComponent extends Component {
                     </div> */}
                     </div>
             </div>
+
+
+
+
+
+            {/* delete below */}
+ 
+            {this.state.message && <div className="alert alert-success">{this.state.message}</div>}
+                <div className="container">
+                <div className="row">     
+                    <div className="col-sm-12 owner-content">
+                    <h1>Upcoming Dates</h1> 
+ >
+                    <table className="table table-hover">
+                        <thead className="thead-dark">
+                            <tr> 
+                                <th>Address</th> 
+                                <th>Date</th>
+                                {/* <th>Update</th>
+                                <th>Delete</th> */}
+                                <th className="delete-col"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        {
+                            this.state.events.map (    
+                                event =>
+                                    <tr key={event.id}>  
+                                        
+                                        <td><a href="#">{event.truckName}</a></td> 
+                                        <td>{moment(event.eventDate).format('lll')}</td>   
+                                        {/* <td><button className="btn update" onClick={() => this.updateTruckClicked(truck.id)}>Update</button></td> */}
+                                        {/* <td><button className="btn update" onClick={() => this.updateTruckClicked(truck.id)}><i class="material-icons-outlined">edit</i></button></td> */}
+                                        <td>
+                                        <button className="btn update" onClick={() => this.updateTruckClicked(event.id)}><i class="material-icons">edit</i></button>
+                                            <button className="btn delete" onClick={() => this.deleteTruckClicked(event.id)}><i class="material-icons">cancel</i></button>
+                                        </td>
+                                    </tr>
+                            )
+                        }
+                        </tbody>
+                    </table>
+                    <div class="add ">
+                        <button className="btn btn-success" onClick={this.addTruckClicked}>Add Event</button>
+                    </div>
+                    </div>
+                    {/* end main content section */}
+                    {/* sidebar */}
+                    {/* <div className="col-sm-2 owner-sidebar">
+                        <h3>Sidebar</h3>
+                    </div> */}
+                    </div>
             </div>
+
+            {/* delete above */}
+
+
+
+
+
+
+
+
+
+
+            </div>
+
+
         )
     }
 }

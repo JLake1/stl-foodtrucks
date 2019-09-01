@@ -57,6 +57,12 @@ class AuthenticationService {
         return user
     }
 
+    getLoggedInTruckName() {
+        let truckName = sessionStorage.getItem('USER_NAME_SESSION_ATTRIBUTE_NAME')
+        if(truckName===null) return ''
+        return truckName
+    }
+
     setupAxiosInterceptors(token) {
 
         axios.interceptors.request.use(

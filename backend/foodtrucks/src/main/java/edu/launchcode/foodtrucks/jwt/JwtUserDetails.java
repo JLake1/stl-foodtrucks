@@ -16,13 +16,15 @@ public class JwtUserDetails implements UserDetails {
   private final Long id;
   private final String username;
   private final String password;
+  public final String truckName;
   private final String userType;
   private final Collection<? extends GrantedAuthority> authorities;
 
-  public JwtUserDetails(Long id, String username, String password, String userType, String role) {
+  public JwtUserDetails(Long id, String username, String password, String truckName, String userType, String role) {
     this.id = id;
     this.username = username;
     this.password = password;
+    this.truckName = truckName;
     this.userType = userType;
 
     List<SimpleGrantedAuthority> authorities = new ArrayList<SimpleGrantedAuthority>();
@@ -57,6 +59,11 @@ public class JwtUserDetails implements UserDetails {
   @Override
   public boolean isCredentialsNonExpired() {
     return true;
+  }
+
+  @JsonIgnore
+  public String getTruckName() {
+    return truckName;
   }
 
   @JsonIgnore
