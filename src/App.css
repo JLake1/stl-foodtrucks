@@ -9,8 +9,14 @@ body {
   background-color: #fdfdfd;
 }
 
+/* HEADER */
+
 .navbar .row {
   width: 100%;
+}
+
+.branding-col {
+  padding-left: 58px !important;
 }
 
 .navbar .login {
@@ -20,6 +26,14 @@ body {
 .navbar-nav li {
   margin: 0 12px 0 0;
 }
+
+.header-user img {
+  max-height: 30px;
+  margin: 0 4px 0 0;
+  padding: 0 0 2px 0;
+}
+
+/* end HEADER */
 
 h1{
   padding: 20px 0 14px 0;
@@ -127,7 +141,15 @@ button.delete{
   background-color: #222222;
 }
 
+/* FORMS */
 
+input[type="text"], input[type="password"] {
+  padding-left: 6px; 
+}
+
+label{
+  margin-right: 6px;
+}
 
 
 

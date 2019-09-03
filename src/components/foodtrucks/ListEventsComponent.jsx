@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import EventDataService from '../../api/foodtrucks/EventDataService.js'
 import AuthenticationService, { USER_NAME_SESSION_ATTRIBUTE_NAME } from './AuthenticationService.js'
+// import importAllImages from './ImageLoader.js'
 import moment from 'moment'
 import { userInfo } from 'os';
 
@@ -98,7 +99,7 @@ class ListEventsComponent extends Component {
     
     render() {
         console.log('render')
-        console.log(this.state.eventDate)
+        // const images = importAllImages(require.context('../../images', false, /\.(png|jpe?g|svg)$/));
         return (
             <div>
                 {this.state.message && <div className="alert alert-success">{this.state.message}</div>}
@@ -106,6 +107,7 @@ class ListEventsComponent extends Component {
                 <div className="row">     
                     <div className="col-sm-12 owner-content">
                     <h1>Upcoming Dates</h1> 
+                    <img src="/assets/img/profile-icon.png" />
                     {/* {this.state.username}
                     <p>{this.state.username && <p>{this.state.username}</p>}</p>
                     <div>{JSON.stringify(USER_NAME_SESSION_ATTRIBUTE_NAME)}</div>  */}

@@ -12,6 +12,10 @@ class TruckDataService {
         //console.log('executed service')
     }
 
+    retrieveTruckDirectory() {
+        return Axios.get(`${JPA_API_URL}/directory`);
+    }
+
     createTruck(name, truck) {
         return Axios.post(`${JPA_API_URL}/users/${name}/trucks`, truck);
         //console.log('executed service')

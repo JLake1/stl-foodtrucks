@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import {Link} from 'react-router-dom'
 import AuthenticationService from './AuthenticationService.js'
 import EventDataService from '../../api/foodtrucks/EventDataService.js'
+import profile from '../../assets/img/profile-icon.png'
 
 class HeaderComponent extends Component {
 
@@ -72,8 +73,10 @@ class HeaderComponent extends Component {
 
                         <div className="col-sm-4">
                         <ul className="navbar-nav">
+                            
                             {isUserLoggedIn && <li><Link className="nav-link" to="/welcome/usernameOwner">Home</Link></li>}
                             {isUserLoggedIn && <li><Link className="nav-link" to="/trucks">Trucks</Link></li>}
+                            <li><Link className="nav-link" to="/browse">Browse</Link></li>
                             {isUserLoggedIn && <li><Link className="nav-link" to="/events">Events</Link></li>}
 
                             {/* TODO: add 'isOwnerLoggedIn' */}
@@ -81,13 +84,13 @@ class HeaderComponent extends Component {
                         </ul>
                         </div>
                         
-                        <div className="col-sm-4">
+                        <div className="col-sm-4 branding-col">
                         <a href="/" className="navbar-brand">STL FOODTRUCKS</a>
                         </div>
 
                         <div className="col-sm-4">
                         <ul className="navbar-nav login"> 
-                            {isUserLoggedIn && <li><Link className="nav-link" to="#">Welcome {this.state.username}</Link></li>}
+                            {isUserLoggedIn && <li className="header-user"><Link className="nav-link" to="#"><img src={profile} /> Welcome {this.state.username}</Link></li>}
                             {isUserLoggedIn && <li><Link className="nav-link" to="/logout" onClick={AuthenticationService.logout}>Logout</Link></li>}
                         </ul>
                         </div>

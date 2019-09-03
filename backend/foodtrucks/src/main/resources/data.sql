@@ -18,3 +18,10 @@ values(10006, 'joe', 'Sandwich Truck', sysdate(), false);
 
 insert into event(id, truck_name, event_address, event_time, event_date)
 values(10007, 'Joes Tacos', '1234 Main street', sysdate(), sysdate());
+
+
+insert into directory(id, truck_name, categories)
+values(20001, 'Joe''s Tacos', 'Mexican, Tacos');
+
+insert into directory(id, truck_name, categories)
+values(20002, 'Sandwich World', 'Sandwiches');
