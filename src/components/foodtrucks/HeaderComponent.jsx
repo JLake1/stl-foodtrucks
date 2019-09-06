@@ -13,7 +13,8 @@ class HeaderComponent extends Component {
             events : [],
             message : null,
             username : '',
-            userType : ''
+            userType : '',
+            test : ''
         }
  
     }
@@ -27,7 +28,7 @@ class HeaderComponent extends Component {
               response => {
                   //console.log(response);
                   this.setState({events : response.data}) 
-                  this.setState({username : `${username}`})
+                  this.setState({username : `${username}`}) 
                 //   this.setState({message : `Display of username ${username} Successful`})
                 //   console.log(username)
               }

@@ -51,7 +51,8 @@ class BrowseTrucksComponent extends Component {
                                         <h3><a href="#">{truck.id}</a></h3>
                                         <p>{truck.truckName}</p>
 
-                                        <img src={"aefasdf/" + truck.imgUrl} />  
+                                        <img src={"" + truck.imgUrl} />
+                                        <p>{truck.categories}</p> 
  
                                     </div>
                             )

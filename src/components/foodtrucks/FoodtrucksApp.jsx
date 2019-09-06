@@ -21,7 +21,8 @@ class FoodtrucksApp extends Component {
                     <>  
                         <HeaderComponent/>
                         <Switch>
-                        <Route path="/" exact component={LoginComponent}/>
+                        {/* <Route path="/" exact component={LoginComponent}/> */}
+                        <Route path="/" exact component={ListEventsComponent}/>
                         <Route path="/login" component={LoginComponent}/>
                         <AuthenticatedRoute path="/welcome/:name" component={WelcomeComponent}/>
                         <AuthenticatedRoute path="/trucks/:id" component={TruckComponent}/>

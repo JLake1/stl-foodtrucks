@@ -10,6 +10,7 @@ class LoginComponent extends Component {
             username: '',
             password: '',
             userType: '',
+            test: '',
             hasLoginFailed: false,
             showSuccessMessage: false
         }
@@ -35,7 +36,8 @@ class LoginComponent extends Component {
             AuthenticationService.registerSuccessfulLoginForJwt(this.state.username,response.data.token, this.state.userType)
             // this.props.history.push(`/welcome/${this.state.username}`)
             // this.props.history.push(`/trucks/`)
-            this.props.history.push(`/events/${this.state.username}`)
+            this.setState({test : `testing`})
+            this.props.history.push(`/`)
         }).catch( () =>{
             this.setState({showSuccessMessage:false})
             this.setState({hasLoginFailed:true})

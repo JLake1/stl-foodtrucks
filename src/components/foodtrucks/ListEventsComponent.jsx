@@ -106,21 +106,23 @@ class ListEventsComponent extends Component {
                 <div className="container">
                 <div className="row">     
                     <div className="col-sm-12 owner-content">
-                    <h1>Upcoming Dates</h1> 
+                    <h1>Today's Events {this.state.eventDate}</h1> 
                     <img src="/assets/img/profile-icon.png" />
                     {/* {this.state.username}
                     <p>{this.state.username && <p>{this.state.username}</p>}</p>
                     <div>{JSON.stringify(USER_NAME_SESSION_ATTRIBUTE_NAME)}</div>  */}
                     {/* <div>{JSON.stringify(USERTYPE)}</div>  */} 
-                    <table className="table table-hover" key="event.id">
+                    <table className="table table-hover">
                         <thead className="thead-dark">
                             <tr> 
-                                <th>Address</th> 
+                                <th>Truck</th> 
+                                <th>Address</th>
                                 <th>Date</th>
+                                <th>Time</th>
                                 {/* <th>Update</th>
                                 <th>Delete</th> */}
                                 {/* <th className="delete-col"></th> */}
-                                <th>Time</th>
+                                
                             </tr>
                         </thead>
                         <tbody>
@@ -130,8 +132,9 @@ class ListEventsComponent extends Component {
                                     <tr key={event.id}>  
                                         
                                         <td><a href={event.truckName}>{event.truckName}</a></td> 
+                                        <td>Address</td>
                                         <td>{moment(event.eventDate).format('lll')}</td> 
-                                        <td></td>  
+                                        {/* <td>{start time} - {end time}</td> */}
                                         {/* <td><button className="btn update" onClick={() => this.updateEventClicked(event.id)}>Update</button></td> */}
                                         {/* <td><button className="btn update" onClick={() => this.Event(event.id)}><i class="material-icons-outlined">edit</i></button></td> */}
                                         {/* <td>

@@ -15,15 +15,17 @@ public class Directory {
     private Long id;
     private String truckName;
     private String categories;
+    private String imgUrl;
 
     protected Directory() {
 
     }
 
-    public Directory(long id, String truckName, String categories) {
+    public Directory(long id, String truckName, String categories, String imgUrl) {
         this.id = id;
         this.truckName = truckName;
         this.categories = categories;
+        this.imgUrl = imgUrl;
     }
 
     public Long getId() {
@@ -48,6 +50,14 @@ public class Directory {
 
     public void setCategories(String categories) {
         this.categories = categories;
+    }
+
+    public String getImgUrl() {
+        return imgUrl;
+    }
+
+    public void setImgUrl(String imgUrl) {
+        this.imgUrl = imgUrl;
     }
 
     @Override
