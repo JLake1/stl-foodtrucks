@@ -134,8 +134,8 @@ button.delete{
 }
 
 .footer {
-  position: absolute;
-  bottom: 0;
+  /* position: absolute;
+  bottom: 0; */
   width: 100%;
   height: 40px;
   background-color: #222222;
@@ -147,10 +147,35 @@ button.delete{
   display: inline-block;
   width: 300px;
   height: 300px;
+  border: 1px solid #f5f5f5;
+}
+
+.directory-tile:hover {
+  background-color: #e4e4e4;
+}
+
+.directory-tile h3, .directory-tile a {
+  font-size: 20px;
+  color: #222222;
+}
+
+.directory-tile h4 {
+  background-color: #1155a7;
+  color: #ffffff;
+  width: fit-content; 
+  display: block;
+  margin: 8px auto 0 auto;
+  padding: 4px 8px;
+  font-weight: 300;
+  font-size: 12px;
+  border-radius: 4px;
 }
 
 .directory-tile img {
   max-height: 170px;
+  border: 1px solid #f5f5f5;
+  border-radius: 10px;
+  padding: 12px;
 }
 
 /* FORMS */

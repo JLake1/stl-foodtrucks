@@ -32,8 +32,6 @@ class BrowseTrucksComponent extends Component {
           ) 
     }
 
- 
-
     render() {
         return (
             <div>
@@ -48,11 +46,11 @@ class BrowseTrucksComponent extends Component {
                                 truck =>
                                     <div key={truck.id} className="directory-tile">  
                                         
-                                        <h3><a href="#">{truck.id}</a></h3>
-                                        <p>{truck.truckName}</p>
+                                        {/* <h3><a href="#">{truck.id}</a></h3> */}
+                                        <h3><a href="#">{truck.truckName}</a></h3> 
 
                                         <img src={"" + truck.imgUrl} />
-                                        <p>{truck.categories}</p> 
+                                        <h4>{truck.categories}</h4> 
  
                                     </div>
                             )
