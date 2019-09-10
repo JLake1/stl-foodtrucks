@@ -12,8 +12,12 @@ class TruckDataService {
         //console.log('executed service')
     }
 
-    retrieveTruckDirectory() {
-        return Axios.get(`${JPA_API_URL}/directory`);
+    retrieveAllTruckProfiles() {
+        return Axios.get(`${JPA_API_URL}/truck_profile/`);
+    }
+
+    retrieveTruckProfile(id) {
+        return Axios.get(`${JPA_API_URL}/truck_profile/${id}`);
     }
 
     createTruck(name, truck) {

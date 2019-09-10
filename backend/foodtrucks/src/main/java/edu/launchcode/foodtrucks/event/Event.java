@@ -14,19 +14,27 @@ public class Event {
     private Long id;
     private String truckName;
     private String eventAddress;
-    private Date eventTime;
+    private String eventCity;
     private Date eventDate;
+    private String startTime;
+    private String endTime;
+    private Long truckId;
+    private String imgUrl;
 
     protected Event() {
 
     }
 
-    public Event(long id, String truckName, String eventAddress, Date eventTime, Date eventDate) {
+    public Event(long id, String truckName, String eventAddress, String eventCity, Date eventDate, String startTime, String endTime, long truckId, String imgUrl) {
         this.id = id;
         this.truckName = truckName;
         this.eventAddress = eventAddress;
-        this.eventTime = eventTime;
+        this.eventCity = eventCity;
         this.eventDate = eventDate;
+        this.startTime = startTime;
+        this.endTime = endTime;
+        this.truckId = truckId;
+        this.imgUrl = imgUrl;
     }
 
     public Long getId() {
@@ -53,12 +61,12 @@ public class Event {
         this.eventAddress = eventAddress;
     }
 
-    public Date getEventTime() {
-        return eventTime;
+    public String getEventCity() {
+        return eventCity;
     }
 
-    public void setEventTime(Date eventTime) {
-        this.eventTime = eventTime;
+    public void setEventCity(String eventCity) {
+        this.eventCity = eventCity;
     }
 
     public Date getEventDate() {
@@ -67,6 +75,38 @@ public class Event {
 
     public void setEventDate(Date eventDate) {
         this.eventDate = eventDate;
+    }
+
+    public String getStartTime() {
+        return startTime;
+    }
+
+    public void setStartTime(String startTime) {
+        this.startTime = startTime;
+    }
+
+    public String getEndTime() {
+        return endTime;
+    }
+
+    public void setEndTime(String endTime) {
+        this.endTime = endTime;
+    }
+
+    public Long getTruckId() {
+        return truckId;
+    }
+
+    public void setTruckId(Long truckId) {
+        this.truckId = truckId;
+    }
+
+    public String getImgUrl() {
+        return imgUrl;
+    }
+
+    public void setImgUrl(String imgUrl) {
+        this.imgUrl = imgUrl;
     }
 
     @Override

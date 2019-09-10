@@ -79,7 +79,7 @@ class TruckComponent extends Component {
     render() {
         let {truckName,description,targetDate} = this.state
         return (
-            <div>
+            <div className="wrapper">
                 <h1>Add Event</h1>
                 {this.state.truckName}
                 <div className="container add-form">

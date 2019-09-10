@@ -1,14 +1,12 @@
-package edu.launchcode.foodtrucks.directory;
+package edu.launchcode.foodtrucks.truckProfile;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import java.util.Date;
-import java.util.List;
 import java.util.Objects;
 
 @Entity
-public class Directory {
+public class TruckProfile {
 
     @Id
     @GeneratedValue
@@ -17,11 +15,11 @@ public class Directory {
     private String categories;
     private String imgUrl;
 
-    protected Directory() {
+    protected TruckProfile() {
 
     }
 
-    public Directory(long id, String truckName, String categories, String imgUrl) {
+    public TruckProfile(long id, String truckName, String categories, String imgUrl) {
         this.id = id;
         this.truckName = truckName;
         this.categories = categories;
@@ -64,7 +62,7 @@ public class Directory {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Directory truck = (Directory) o;
+        TruckProfile truck = (TruckProfile) o;
         return id == truck.id;
     }
 

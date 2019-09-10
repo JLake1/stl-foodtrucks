@@ -78,6 +78,7 @@ class HeaderComponent extends Component {
                             {isUserLoggedIn && <li><Link className="nav-link" to="/welcome/usernameOwner">Home</Link></li>}
                             {isUserLoggedIn && <li><Link className="nav-link" to="/trucks">Trucks</Link></li>}
                             <li><Link className="nav-link" to="/browse">Browse</Link></li>
+                            <li><Link className="nav-link" to="/truck_profile">Truck Profile</Link></li>
                             {isUserLoggedIn && <li><Link className="nav-link" to="/events">Events</Link></li>}
 
                             {/* TODO: add 'isOwnerLoggedIn' */}
@@ -92,6 +93,7 @@ class HeaderComponent extends Component {
                         <div className="col-sm-4">
                         <ul className="navbar-nav login"> 
                             {isUserLoggedIn && <li className="header-user"><Link className="nav-link" to="#"><img src={profile} /> Welcome {this.state.username}</Link></li>}
+                            {!isUserLoggedIn && <li><Link className="nav-link" to="/login">Login</Link></li>}
                             {isUserLoggedIn && <li><Link className="nav-link" to="/logout" onClick={AuthenticationService.logout}>Logout</Link></li>}
                         </ul>
                         </div>

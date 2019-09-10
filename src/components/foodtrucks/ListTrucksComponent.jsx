@@ -83,7 +83,7 @@ class ListTrucksComponent extends Component {
         console.log('render')
         console.log(this.state.userType)
         return (
-            <div>
+            <div className="wrapper">
                 {this.state.message && <div className="alert alert-success">{this.state.message}</div>}
                 <div className="container">
                 <div className="row">     

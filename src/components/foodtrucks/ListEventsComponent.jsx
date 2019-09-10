@@ -98,26 +98,24 @@ class ListEventsComponent extends Component {
     }
     
     render() {
-        console.log('render')
-        // const images = importAllImages(require.context('../../images', false, /\.(png|jpe?g|svg)$/));
+        const isUserLoggedIn = AuthenticationService.isUserLoggedIn()
+        console.log(isUserLoggedIn)
         return (
-            <div>
+            <div className="wrapper">
                 {this.state.message && <div className="alert alert-success">{this.state.message}</div>}
                 <div className="container">
                 <div className="row">     
                     <div className="col-sm-12 owner-content">
-                    <h1>Today's Events {this.state.eventDate}</h1> 
-                    <img src="/assets/img/profile-icon.png" />
+                    <h1>Today's Events {this.state.eventDate}</h1>  
                     {/* {this.state.username}
                     <p>{this.state.username && <p>{this.state.username}</p>}</p>
                     <div>{JSON.stringify(USER_NAME_SESSION_ATTRIBUTE_NAME)}</div>  */}
                     {/* <div>{JSON.stringify(USERTYPE)}</div>  */} 
                     <table className="table table-hover">
                         <thead className="thead-dark">
-                            <tr> 
-                                <th>Truck</th> 
-                                <th>Address</th>
-                                <th>Date</th>
+                            <tr>  
+                                <th colSpan="2">Truck</th> 
+                                <th className="event-truckAddress-col">Address</th>
                                 <th>Time</th>
                                 {/* <th>Update</th>
                                 <th>Delete</th> */}
@@ -129,12 +127,13 @@ class ListEventsComponent extends Component {
                         {
                             this.state.events.map (    
                                 event =>
-                                    <tr key={event.id}>  
-                                        
-                                        <td><a href={event.truckName}>{event.truckName}</a></td> 
-                                        <td>Address</td>
-                                        <td>{moment(event.eventDate).format('lll')}</td> 
+                                    <tr key={event.id}>    
+                                        <td className="event-truckLogo-cell"><img src={event.imgUrl} /></td>
+                                        <td className="event-truckName-cell"><a href={"/truck_profile/" + event.truckId}>{event.truckName}</a></td> 
+                                        <td><a href={"https://www.google.com/search?q=" + event.eventAddress + " " + event.eventCity} >{event.eventAddress}<br />{event.eventCity}</a></td>
+                                        <td>{event.startTime} - {event.endTime}</td>
                                         {/* <td>{start time} - {end time}</td> */}
+                                        {/* <td>{moment(event.eventDate).format('lll')}</td>  */}
                                         {/* <td><button className="btn update" onClick={() => this.updateEventClicked(event.id)}>Update</button></td> */}
                                         {/* <td><button className="btn update" onClick={() => this.Event(event.id)}><i class="material-icons-outlined">edit</i></button></td> */}
                                         {/* <td>
@@ -147,7 +146,7 @@ class ListEventsComponent extends Component {
                         </tbody>
                     </table>
                     <div class="add ">
-                        <button className="btn btn-success" onClick={this.addEventClicked}>Add Event</button>
+                    {isUserLoggedIn && <button className="btn btn-success" onClick={this.addEventClicked}>Add Event</button>}
                     </div>
                     </div>
                     {/* end main content section */}

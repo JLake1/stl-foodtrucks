@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined');
-@import url('https://fonts.googleapis.com/css?family=Montserrat|Red+Hat+Text|Lexend+Exa');
+@import url('https://fonts.googleapis.com/css?family=Montserrat|Red+Hat+Text|Lexend+Exa|Roboto');
 
 .App {
   text-align: center;
@@ -42,11 +42,33 @@ h1{
 }
 
 .container {
-  background-color: #ffffff;
+  background: none;
+}
+
+.wrapper > .container > .row > div {
+  background: #ffffff;
+}
+
+.wrapper {
+  background: #f3f9ff;
+  padding-bottom: 26px;
+
+    /* Firefox */
+  min-height: -moz-calc(100vh - 97px);
+  /* WebKit */
+  min-height: -webkit-calc(100vh - 97px);
+  /* Opera */
+  min-height: -o-calc(100vh - 97px);
+  /* Standard */
+  min-height: calc(100vh - 97px);
 }
 
 .btn .material-icons, .btn .material-icons-outlined{
   font-size: 26px; 
+}
+
+table td {
+  vertical-align: middle;
 }
 
 .owner-content {
@@ -141,22 +163,52 @@ button.delete{
   background-color: #222222;
 }
 
+/* BROWSE EVENTS COMPONENT */
+
+.event-truckAddress-col{
+  width: 200px;
+}
+
+.event-truckLogo-cell{
+  width: 120px;
+}
+
+.event-truckLogo-cell img {
+  height: 62px;
+  border-radius: 8px;
+}
+
+.event-truckName-cell {
+  text-align: left;
+  font-size: 18px;
+  width: 318px;
+}
+
+.event-truckName-cell a {
+  font-family: 'Red Hat Text', 'Open Sans', Arial, sans-serif;
+  color: #003267;
+}
+ 
+
 /* DIRECTORY */
 
 .directory-tile {
   display: inline-block;
   width: 300px;
-  height: 300px;
-  border: 1px solid #f5f5f5;
+  height: 280px; 
+  padding: 22px 0 18px 0;
+  margin-bottom: 14px;
 }
 
 .directory-tile:hover {
-  background-color: #e4e4e4;
+  background-color: #f3f3f3;
 }
 
 .directory-tile h3, .directory-tile a {
+  font-family: 'Red Hat Text', 'Open Sans', Arial, sans-serif;
   font-size: 20px;
-  color: #222222;
+  font-weight: bold;
+  color: #003267;
 }
 
 .directory-tile h4 {
@@ -173,9 +225,9 @@ button.delete{
 
 .directory-tile img {
   max-height: 170px;
-  border: 1px solid #f5f5f5;
+  border: 3px solid #f3f3f3;
   border-radius: 10px;
-  padding: 12px;
+  padding: 2px;
 }
 
 /* FORMS */

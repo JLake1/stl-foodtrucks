@@ -47,7 +47,7 @@ class LoginComponent extends Component {
 
     render() {
         return (
-            <div>
+            <div className="wrapper">
                 <div className="container">
                     <h1>Login</h1>
                     {/*<ShowInvalidCredentials hasLoginFailed={this.state.hasLoginFailed}/>*/}

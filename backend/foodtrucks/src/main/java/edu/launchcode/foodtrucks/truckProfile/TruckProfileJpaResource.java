@@ -1,4 +1,4 @@
-package edu.launchcode.foodtrucks.directory;
+package edu.launchcode.foodtrucks.truckProfile;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -10,21 +10,21 @@ import java.util.List;
 
 @CrossOrigin(origins="http://localhost:4200")
 @RestController
-public class DirectoryJpaResource {
+public class TruckProfileJpaResource {
 
 
     @Autowired
-    private DirectoryJpaRepository directoryJpaRepository;
+    private TruckProfileJpaRepository truckProfileJpaRepository;
 
-    @GetMapping("/jpa/directory")
-    public List<Directory> getAllTrucksDirectory() {
-        return directoryJpaRepository.findAll();
+    @GetMapping("/jpa/truck_profile")
+    public List<TruckProfile> getAllTruckProfiles() {
+        return truckProfileJpaRepository.findAll();
     }
 
-//    @GetMapping("/jpa/events/{username}")
-//    public List<Directory> getOwnerEvents(@PathVariable String username) {
-//        return eventJpaRepository.findByTruckName(username);
-//    }
+    @GetMapping("/jpa/truck_profile/{id}")
+    public TruckProfile getTruckProfile(@PathVariable long id) {
+        return truckProfileJpaRepository.findById(id).get();
+    }
 //
 //    @GetMapping("/jpa/users/{username}/trucks/{id}")
 //    public Truck getTruck(@PathVariable String username, @PathVariable long id) {
