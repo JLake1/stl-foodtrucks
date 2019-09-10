@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined');
-@import url('https://fonts.googleapis.com/css?family=Montserrat|Red+Hat+Text|Lexend+Exa|Roboto');
+@import url('https://fonts.googleapis.com/css?family=Montserrat|Red+Hat+Text|Lexend+Exa|Roboto|Open+Sans');
 
 .App {
   text-align: center;
@@ -9,7 +9,12 @@ body {
   background-color: #fdfdfd;
 }
 
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Red Hat Text', 'Open Sans', Arial, sans-serif;
+}
+
 /* HEADER */
+
 
 .navbar .row {
   width: 100%;
@@ -17,6 +22,7 @@ body {
 
 .branding-col {
   padding-left: 58px !important;
+  font-family: 'Red Hat Text';
 }
 
 .navbar .login {
@@ -163,7 +169,15 @@ button.delete{
   background-color: #222222;
 }
 
-/* BROWSE EVENTS COMPONENT */
+/* LIST EVENTS COMPONENT */
+
+.list-events-component h1 {
+  padding-bottom: 0;
+}
+
+.list-events-component h6 {
+  padding-bottom: 20px;
+}
 
 .event-truckAddress-col{
   width: 200px;
@@ -188,7 +202,6 @@ button.delete{
   font-family: 'Red Hat Text', 'Open Sans', Arial, sans-serif;
   color: #003267;
 }
- 
 
 /* DIRECTORY */
 
@@ -228,6 +241,57 @@ button.delete{
   border: 3px solid #f3f3f3;
   border-radius: 10px;
   padding: 2px;
+}
+
+/* TRUCK PROFILE COMPONENT */
+
+.truck-profile-component h1{
+  padding-top: 45px;
+}
+
+.truck-profile-component h4 {
+  background-color: #1155a7;
+  color: #ffffff;
+  width: fit-content; 
+  display: block;
+  margin: 24px auto 0 auto;
+  padding: 4px 15px;
+  font-weight: 300;
+  font-size: 19px;
+  border-radius: 4px;
+}
+
+.social-icons{
+  text-align: center;
+  padding-top: 38px;
+}
+ 
+
+svg.svg-inline--fa.fa-facebook-f.fa-w-10, svg.svg-inline--fa.fa-yelp.fa-w-12, svg.svg-inline--fa.fa-twitter.fa-w-16 {
+  color: #ffffff;
+  padding: 20px;
+  font-size: 30px;  
+  width: 60px; 
+  height: 60px;
+  text-align: center;
+  text-decoration: none;
+  margin: 5px 4px; 
+}
+
+.fa-facebook-f {
+  background: #3B5998;
+}
+
+.fa-twitter {
+  background: #55ACEE;
+}
+
+.fa-yelp {
+  background: #c41200;
+}
+
+.fa-facebook-f:hover, .fa-twitter:hover, .fa-yelp:hover  {
+  opacity: 0.8;
 }
 
 /* FORMS */

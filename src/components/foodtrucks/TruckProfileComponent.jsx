@@ -2,7 +2,8 @@ import React, {Component} from 'react'
 import moment from 'moment' 
 import TruckDataService from '../../api/foodtrucks/TruckDataService.js'
 import AuthenticationService from './AuthenticationService.js'
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faFacebookF, faTwitter, faYelp } from '@fortawesome/free-brands-svg-icons'
 
 class TruckProfileComponent extends Component {
     constructor(props) {
@@ -39,11 +40,22 @@ class TruckProfileComponent extends Component {
 
     render() { 
         return (
-            <div className="wrapper">
+            <div className="wrapper truck-profile-component">
                 {/* {this.props.history.location.pathname} */}
                 <h1>{this.state.truck.truckName}</h1>
-                <p>{this.state.truck.categories}</p>
                 <img src={this.state.truck.imgUrl} />
+                <h4>{this.state.truck.categories}</h4>
+                <div className="social-icons">
+                    <a href="#" target="_blank">
+                        <FontAwesomeIcon icon={faFacebookF} />
+                    </a>
+                    <a href="#" target="_blank">
+                        <FontAwesomeIcon icon={faYelp} />
+                    </a>
+                    <a href="#" target="_blank">
+                        <FontAwesomeIcon icon={faTwitter} />
+                    </a>              
+                </div>
                 
             </div>
         )

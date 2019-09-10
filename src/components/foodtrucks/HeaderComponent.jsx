@@ -73,8 +73,7 @@ class HeaderComponent extends Component {
                     <div className="row">
 
                         <div className="col-sm-4">
-                        <ul className="navbar-nav">
-                            
+                        <ul className="navbar-nav"> 
                             {isUserLoggedIn && <li><Link className="nav-link" to="/welcome/usernameOwner">Home</Link></li>}
                             {isUserLoggedIn && <li><Link className="nav-link" to="/trucks">Trucks</Link></li>}
                             <li><Link className="nav-link" to="/browse">Browse</Link></li>

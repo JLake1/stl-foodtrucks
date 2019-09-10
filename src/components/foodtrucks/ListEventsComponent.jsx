@@ -14,7 +14,8 @@ class ListEventsComponent extends Component {
             events : [],
             message : null,
             username : '',
-            userType : ''
+            userType : '',
+            todaysDate: ''
         }
 
         // this.deleteEventClicked = this.deleteEventClicked.bind(this)
@@ -24,13 +25,13 @@ class ListEventsComponent extends Component {
     }
 
     componentWillUnmount() {
-        console.log('component will unmount')
+        // console.log('component will unmount')
     }
 
     shouldComponentUpdate(nextProps, nextState) {
-        console.log('should component update')
-        console.log(nextProps)
-        console.log(nextState)
+        // console.log('should component update')
+        // console.log(nextProps)
+        // console.log(nextState)
         return true
     }
 
@@ -41,6 +42,11 @@ class ListEventsComponent extends Component {
 
     componentDidMount() {
         console.log('component did mount')
+        var date = new Date().getDate();  
+        var month = new Date().getMonth() + 1;  
+        var year = new Date().getFullYear();
+        var todaysDate = date + '/' + month + '/' + year 
+        console.log(month, "/", date, "/", year)
         this.refreshEvents() 
         let username = AuthenticationService.getLoggedInUserName()
         EventDataService.retrieveAllEvents(username)
@@ -49,6 +55,7 @@ class ListEventsComponent extends Component {
                   //console.log(response);
                   this.setState({events : response.data}) 
                   this.setState({username : `${username}`})
+                  this.setState({todaysDate : `${todaysDate}`})
                 //   this.setState({message : `Display of username ${username} Successful`})
                 //   console.log(username)
               }
@@ -101,12 +108,13 @@ class ListEventsComponent extends Component {
         const isUserLoggedIn = AuthenticationService.isUserLoggedIn()
         console.log(isUserLoggedIn)
         return (
-            <div className="wrapper">
+            <div className="wrapper list-events-component">
                 {this.state.message && <div className="alert alert-success">{this.state.message}</div>}
                 <div className="container">
                 <div className="row">     
                     <div className="col-sm-12 owner-content">
-                    <h1>Today's Events {this.state.eventDate}</h1>  
+                    <h1>Today's Trucks {this.state.eventDate}</h1>  
+                    <h6>{this.state.todaysDate}</h6>
                     {/* {this.state.username}
                     <p>{this.state.username && <p>{this.state.username}</p>}</p>
                     <div>{JSON.stringify(USER_NAME_SESSION_ATTRIBUTE_NAME)}</div>  */}
@@ -128,7 +136,7 @@ class ListEventsComponent extends Component {
                             this.state.events.map (    
                                 event =>
                                     <tr key={event.id}>    
-                                        <td className="event-truckLogo-cell"><img src={event.imgUrl} /></td>
+                                        <td className="event-truckLogo-cell"><a href={"/truck_profile/" + event.truckId}><img src={event.imgUrl} /></a></td>
                                         <td className="event-truckName-cell"><a href={"/truck_profile/" + event.truckId}>{event.truckName}</a></td> 
                                         <td><a href={"https://www.google.com/search?q=" + event.eventAddress + " " + event.eventCity} >{event.eventAddress}<br />{event.eventCity}</a></td>
                                         <td>{event.startTime} - {event.endTime}</td>
