@@ -49,6 +49,11 @@ class AuthenticationService {
         let user = sessionStorage.getItem('USER_NAME_SESSION_ATTRIBUTE_NAME')
         if(user===null) return false
         return true
+
+        // const token = sessionStorage.getItem('USER_NAME_SESSION_ATTRIBUTE_NAME') 
+        // console.log(token, "this is the token")
+        
+        // return token?true:false
     }
 
     getLoggedInUserName() {

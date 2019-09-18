@@ -2,54 +2,55 @@ import React, {Component} from 'react'
 import {Link} from 'react-router-dom'
 import AuthenticationService from './AuthenticationService.js'
 import EventDataService from '../../api/foodtrucks/EventDataService.js'
-import profile from '../../assets/img/profile-icon.png'
+import profile from '../../assets/img/profile-icon.png' 
+
 
 class HeaderComponent extends Component {
 
-    constructor(props){
-        console.log('constructor')
+    constructor(props){ 
         super(props)
         this.state = {
             events : [],
-            message : null,
-            username : '',
-            userType : '',
-            test : ''
-        }
- 
+            message : null 
+        } 
     }
 
+    // sendData = () => {
+    //      this.props.parentCallback("Hey Popsie, How’s it going?")
+    // }
+
+ 
+
     componentDidMount() {
-        console.log('component did mount')
+
+        // this.sendData()
+
         this.refreshEvents() 
         let username = AuthenticationService.getLoggedInUserName()
         EventDataService.retrieveAllEvents(username)
           .then(
-              response => {
-                  //console.log(response);
+              response => { 
                   this.setState({events : response.data}) 
-                  this.setState({username : `${username}`}) 
-                //   this.setState({message : `Display of username ${username} Successful`})
-                //   console.log(username)
+                  this.setState({username : `${username}`})                     
               }
-          ) 
-    }
-
+          )
+     }
+ 
     refreshEvents() {
         let username = AuthenticationService.getLoggedInUserName()
         EventDataService.retrieveAllEvents(username)
           .then(
-              response => {
-                  //console.log(response);
-                  this.setState({events : response.data})
-                  console.log(username)
+              response => { 
+                  this.setState({events : response.data}) 
               }
           ) 
     }
-
+ 
     render() {
+
         const isUserLoggedIn = AuthenticationService.isUserLoggedIn()
-        //console.log(isUserLoggedIn)
+        // console.log("Header render")
+        
 
         return (
             // <header>
@@ -71,17 +72,18 @@ class HeaderComponent extends Component {
             <header>
                 <nav className="navbar navbar-expand-md navbar-dark bg-dark">
                     <div className="row">
-
+                    
                         <div className="col-sm-4">
                         <ul className="navbar-nav"> 
-                            {isUserLoggedIn && <li><Link className="nav-link" to="/welcome/usernameOwner">Home</Link></li>}
+                            <li><Link className="nav-link" to="/">Home</Link></li>
                             {isUserLoggedIn && <li><Link className="nav-link" to="/trucks">Trucks</Link></li>}
-                            <li><Link className="nav-link" to="/browse">Browse</Link></li>
-                            <li><Link className="nav-link" to="/truck_profile">Truck Profile</Link></li>
+                            <li><Link className="nav-link" to="/browse">Browse</Link></li>     
                             {isUserLoggedIn && <li><Link className="nav-link" to="/events">Events</Link></li>}
+ 
+                            {/* <li><Link className="nav-link" to="/truck_profile">My Profile</Link></li> */}
+                            {/* <li>{this.props.dataFromParent}</li> */}
+                            {/* {isUserLoggedIn && <li><Link className="nav-link" to="/welcome/usernameOwner">Home</Link></li>} */}
 
-                            {/* TODO: add 'isOwnerLoggedIn' */}
-                            {/* {isUserLoggedIn && <li><Link className="nav-link" to="/owner/my-profile">My Profile</Link></li>} */}
                         </ul>
                         </div>
                         
@@ -103,5 +105,7 @@ class HeaderComponent extends Component {
         )
     }
 }
+
+
 
 export default HeaderComponent

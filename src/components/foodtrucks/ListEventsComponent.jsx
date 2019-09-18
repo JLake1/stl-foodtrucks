@@ -1,22 +1,21 @@
 import React, {Component} from 'react'
 import EventDataService from '../../api/foodtrucks/EventDataService.js'
 import AuthenticationService, { USER_NAME_SESSION_ATTRIBUTE_NAME } from './AuthenticationService.js'
-// import importAllImages from './ImageLoader.js'
 import moment from 'moment'
 import { userInfo } from 'os';
+import HeaderComponent from './HeaderComponent'
 
 class ListEventsComponent extends Component {
     
-    constructor(props){
-        console.log('constructor')
+    constructor(props){ 
         super(props)
         this.state = {
             events : [],
             message : null,
-            username : '',
-            userType : '',
             todaysDate: ''
+         
         }
+ 
 
         // this.deleteEventClicked = this.deleteEventClicked.bind(this)
         // this.updateEventClicked = this.updateEventClicked.bind(this)
@@ -24,40 +23,31 @@ class ListEventsComponent extends Component {
         // this.refreshEvents = this.refreshEvents.bind(this)
     }
 
-    componentWillUnmount() {
-        // console.log('component will unmount')
-    }
+   
 
-    shouldComponentUpdate(nextProps, nextState) {
-        // console.log('should component update')
-        // console.log(nextProps)
-        // console.log(nextState)
-        return true
-    }
+    sendData = () => {
+            // this.props.parentCallback();
+            // console.log(this.props.parentCallback, "abc")
+       }
+ 
+    componentDidMount() { 
 
-    // componentDidMount() {
-    //     console.log('component did mount')
-    //     this.refreshEvents() 
-    // }
-
-    componentDidMount() {
-        console.log('component did mount')
+        // this.sendData()
+ 
         var date = new Date().getDate();  
         var month = new Date().getMonth() + 1;  
         var year = new Date().getFullYear();
-        var todaysDate = date + '/' + month + '/' + year 
-        console.log(month, "/", date, "/", year)
+        var todaysDate = month + '/' + date + '/' + year 
+        // console.log(month, "/", date, "/", year)
         this.refreshEvents() 
         let username = AuthenticationService.getLoggedInUserName()
         EventDataService.retrieveAllEvents(username)
           .then(
-              response => {
-                  //console.log(response);
+              response => { 
                   this.setState({events : response.data}) 
                   this.setState({username : `${username}`})
                   this.setState({todaysDate : `${todaysDate}`})
-                //   this.setState({message : `Display of username ${username} Successful`})
-                //   console.log(username)
+ 
               }
           ) 
     }
@@ -66,17 +56,15 @@ class ListEventsComponent extends Component {
         let username = AuthenticationService.getLoggedInUserName()
         EventDataService.retrieveAllEvents(username)
           .then(
-              response => {
-                  //console.log(response);
+              response => { 
                   this.setState({events : response.data})
-                  console.log(username)
+                //   console.log(username)
               }
           ) 
     }
 
     deleteEventClicked(id) {
         let username = AuthenticationService.getLoggedInUserName()
-        // console.log(id + " " + username);
         EventDataService.deleteEvent(username, id)
           .then (
               response => {
@@ -87,17 +75,9 @@ class ListEventsComponent extends Component {
     }
 
     updateEventClicked(id) {
-        console.log('update' + id)  
+        // console.log('update' + id)  
         this.props.history.push(`/events/`)      
-        // let username = AuthenticationService.getLoggedInUserName()
-        // // console.log(id + " " + username);
-        // EventDataService.deleteEvent(username, id)
-        //   .then (
-        //       response => {
-        //           this.setState({message : `Delete of Event ${id} Successful`})
-        //           this.refreshEvents()
-        //       }
-        //   )
+ 
     }
 
     addEventClicked(id) {
@@ -106,19 +86,21 @@ class ListEventsComponent extends Component {
     
     render() {
         const isUserLoggedIn = AuthenticationService.isUserLoggedIn()
-        console.log(isUserLoggedIn)
+ 
         return (
+            <div>
+            <HeaderComponent></HeaderComponent> 
+            
             <div className="wrapper list-events-component">
+                 {/* {this.props.dataFromParent} */}
                 {this.state.message && <div className="alert alert-success">{this.state.message}</div>}
                 <div className="container">
-                <div className="row">     
+                <div className="row"> 
+ 
+
                     <div className="col-sm-12 owner-content">
                     <h1>Today's Trucks {this.state.eventDate}</h1>  
                     <h6>{this.state.todaysDate}</h6>
-                    {/* {this.state.username}
-                    <p>{this.state.username && <p>{this.state.username}</p>}</p>
-                    <div>{JSON.stringify(USER_NAME_SESSION_ATTRIBUTE_NAME)}</div>  */}
-                    {/* <div>{JSON.stringify(USERTYPE)}</div>  */} 
                     <table className="table table-hover">
                         <thead className="thead-dark">
                             <tr>  
@@ -163,6 +145,7 @@ class ListEventsComponent extends Component {
                         <h3>Sidebar</h3>
                     </div> */}
                     </div>
+            </div>
             </div>
             </div>
         )

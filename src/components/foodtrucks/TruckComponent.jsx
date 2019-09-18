@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import moment from 'moment'
 import { Formik, Form, Field, ErrorMessage } from 'formik'
 import TruckDataService from '../../api/foodtrucks/TruckDataService.js'
+import HeaderComponent from './HeaderComponent'
 import AuthenticationService from './AuthenticationService.js'
 
 
@@ -73,12 +74,15 @@ class TruckComponent extends Component {
                 )
         }
 
-        console.log(values)
+        // console.log(values)
     }
 
     render() {
         let {truckName,description,targetDate} = this.state
         return (
+            <div>
+            <HeaderComponent></HeaderComponent> 
+
             <div className="wrapper">
                 <h1>Add Event</h1>
                 {this.state.truckName}
@@ -96,22 +100,21 @@ class TruckComponent extends Component {
                                 <Form>
                                     <ErrorMessage name="description" component="div" className="alert alert-warning"/>
                                     <ErrorMessage name="targetDate" component="div" className="alert alert-warning"/>
-                                    <fieldset>
+                                    {/* <fieldset>
                                         <label>Truck Name</label>
                                         <Field className="form-control" type="text" name="truckName"/>
-                                    </fieldset>                                    
+                                    </fieldset>                                     */}
                                     <fieldset>
-                                        <label>Description</label>
-                                        <label>Address</label>
+                                        <label>Truck Name</label> 
                                         <Field className="form-control" type="text" name="description"/>
                                     </fieldset>
                                     {/* <fieldset>
                                         <label>Date</label>
                                         <Field className="form-control" type="date" name="targetDate"/>
                                     </fieldset> */}
-                                    <fieldset>
+                                    {/* <fieldset>
                                         <Field className="form-control" type="datetime-local" name="targetDate"/>
-                                    </fieldset>
+                                    </fieldset> */}
                                     <button type="submit" className="btn btn-success">Save</button>
                                 </Form>
  
@@ -119,6 +122,7 @@ class TruckComponent extends Component {
                         }
                     </Formik>
                 </div>
+            </div>
             </div>
         )
     }

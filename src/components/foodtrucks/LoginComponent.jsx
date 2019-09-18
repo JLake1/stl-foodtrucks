@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import AuthenticationService from './AuthenticationService.js'
+import HeaderComponent from './HeaderComponent'
 
 class LoginComponent extends Component {
     
@@ -28,6 +29,13 @@ class LoginComponent extends Component {
         )
     }
 
+    // shouldComponentUpdate(nextProps, nextState) {
+    //     console.log('should component update')
+    //     console.log(nextProps)
+    //     console.log(nextState)
+    //     return true
+    // }
+
     loginClicked() {
  
         AuthenticationService
@@ -36,8 +44,10 @@ class LoginComponent extends Component {
             AuthenticationService.registerSuccessfulLoginForJwt(this.state.username,response.data.token, this.state.userType)
             // this.props.history.push(`/welcome/${this.state.username}`)
             // this.props.history.push(`/trucks/`)
-            this.setState({test : `testing`})
+            // this.setState({test : `login testing`})
+            // console.log(test)
             this.props.history.push(`/`)
+            
         }).catch( () =>{
             this.setState({showSuccessMessage:false})
             this.setState({hasLoginFailed:true})
@@ -47,6 +57,8 @@ class LoginComponent extends Component {
 
     render() {
         return (
+            <div>
+            <HeaderComponent></HeaderComponent> 
             <div className="wrapper">
                 <div className="container">
                     <h1>Login</h1>
@@ -65,6 +77,7 @@ class LoginComponent extends Component {
                     </div> */}
                     <button className="btn btn-success" onClick={this.loginClicked}>Login</button>
                 </div>
+            </div>
             </div>
         )
     }

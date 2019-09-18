@@ -1,13 +1,13 @@
 import React, {Component} from 'react'
 import TruckDataService from '../../api/foodtrucks/TruckDataService.js'
 import AuthenticationService from './AuthenticationService.js'
+import HeaderComponent from './HeaderComponent'
 import moment from 'moment'
 import { userInfo } from 'os';
 
 class ListTrucksComponent extends Component {
     
-    constructor(props){
-        console.log('constructor')
+    constructor(props){ 
         super(props)
         this.state = {
             trucks : [],
@@ -20,22 +20,17 @@ class ListTrucksComponent extends Component {
         this.addTruckClicked = this.addTruckClicked.bind(this)
         this.refreshTrucks = this.refreshTrucks.bind(this)
     }
-
-    componentWillUnmount() {
-        console.log('component will unmount')
-    }
-
+ 
     shouldComponentUpdate(nextProps, nextState) {
-        console.log('should component update')
-        console.log(nextProps)
-        console.log(nextState)
+        // console.log('should component update')
+        // console.log(nextProps)
+        // console.log(nextState)
         return true
     }
 
-    componentDidMount() {
-        console.log('component did mount')
+    componentDidMount() { 
         this.refreshTrucks()
-        console.log(this.state)
+        // console.log(this.state)
     }
 
     refreshTrucks() {
@@ -80,22 +75,24 @@ class ListTrucksComponent extends Component {
     }
     
     render() {
-        console.log('render')
-        console.log(this.state.userType)
+ 
         return (
+            <div>
+            <HeaderComponent></HeaderComponent> 
+
             <div className="wrapper">
                 {this.state.message && <div className="alert alert-success">{this.state.message}</div>}
                 <div className="container">
                 <div className="row">     
                     <div className="col-sm-12 owner-content">
-                    <h1>Upcoming Dates</h1> 
+                    <h1>My Trucks</h1> 
                     
-                    <p>{this.state.userType && <div>{this.state.userType}</div>}</p>
+                    {/* <p>{this.state.userType && <div>{this.state.userType}</div>}</p> */}
                     <table className="table table-hover" key="truck.id">
                         <thead className="thead-dark">
                             <tr> 
-                                <th>Address</th> 
-                                <th>Date</th>
+                                <th>Truck Name</th>  
+                                <th>Next Event</th> 
                                 {/* <th>Update</th>
                                 <th>Delete</th> */}
                                 <th className="delete-col"></th>
@@ -106,8 +103,8 @@ class ListTrucksComponent extends Component {
                             this.state.trucks.map (    
                                 truck =>
                                     <tr key={truck.id}>  
-                                        
-                                        <td><a href="#">{truck.description}</a></td> 
+                                        {/* <td><a href="#">{truck.truckName}</a></td>  */}
+                                        <td><a href="#">{truck.description}</a></td>  
                                         <td>{moment(truck.targetDate).format('lll')}</td>   
                                         {/* <td><button className="btn update" onClick={() => this.updateTruckClicked(truck.id)}>Update</button></td> */}
                                         {/* <td><button className="btn update" onClick={() => this.updateTruckClicked(truck.id)}><i class="material-icons-outlined">edit</i></button></td> */}
@@ -121,7 +118,7 @@ class ListTrucksComponent extends Component {
                         </tbody>
                     </table>
                     <div class="add ">
-                        <button className="btn btn-success" onClick={this.addTruckClicked}>Add Event</button>
+                        <button className="btn btn-success" onClick={this.addTruckClicked}>Add Truck</button>
                     </div>
                     </div>
                     {/* end main content section */}
@@ -130,6 +127,7 @@ class ListTrucksComponent extends Component {
                         <h3>Sidebar</h3>
                     </div> */}
                     </div>
+            </div>
             </div>
             </div>
         )

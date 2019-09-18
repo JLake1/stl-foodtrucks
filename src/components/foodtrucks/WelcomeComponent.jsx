@@ -43,12 +43,12 @@ class WelcomeComponent extends Component {
     }
 
     handleSuccessfulResponse(response) {
-        console.log(response)
+        // console.log(response)
         this.setState({welcomeMessage: response.data.message})
     }
 
     handleError(error) {
-        console.log(error.response)
+        // console.log(error.response)
         let errorMessage = '';
         
         if(error.message) 

@@ -1,12 +1,10 @@
 import React, {Component} from 'react'
 import TruckDataService from '../../api/foodtrucks/TruckDataService.js'
-import AuthenticationService from './AuthenticationService.js'
-// import imageLoader from './ImageLoader.js'
+import HeaderComponent from './HeaderComponent'
  
 class BrowseTrucksComponent extends Component {
  
     constructor(props){
-        console.log('constructor')
         super(props)
         this.state = {
             trucks : [],
@@ -15,15 +13,13 @@ class BrowseTrucksComponent extends Component {
             // username : '',
             // userType : ''
         }
- 
     }
 
-    componentDidMount() {   
-        console.log("asdfasdfasdf")
+    componentDidMount() {    
         TruckDataService.retrieveAllTruckProfiles()
           .then(
               response => {
-                  console.log(response);
+                //   console.log(response);
                   this.setState({trucks : response.data})  
               }
           ) 
@@ -31,6 +27,9 @@ class BrowseTrucksComponent extends Component {
 
     render() {
         return (
+            <div>
+            <HeaderComponent></HeaderComponent> 
+
             <div className="wrapper">
                 {this.state.message && <div className="alert alert-success">{this.state.message}</div>}
                 <div className="container">
@@ -56,6 +55,7 @@ class BrowseTrucksComponent extends Component {
                     </div>
  
                     </div>
+            </div>
             </div>
             </div>
         )

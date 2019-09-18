@@ -1,7 +1,6 @@
-import React, {Component} from 'react'
-import moment from 'moment' 
-import TruckDataService from '../../api/foodtrucks/TruckDataService.js'
-import AuthenticationService from './AuthenticationService.js'
+import React, {Component} from 'react' 
+import TruckDataService from '../../api/foodtrucks/TruckDataService.js' 
+import HeaderComponent from './HeaderComponent'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFacebookF, faTwitter, faYelp } from '@fortawesome/free-brands-svg-icons'
 
@@ -23,23 +22,23 @@ class TruckProfileComponent extends Component {
     componentDidMount() {
         var truckUrl = this.props.history.location.pathname
         var truckId = truckUrl.replace("/truck_profile/", "");
-        console.log("truck Id= " + truckId)
         TruckDataService.retrieveTruckProfile(truckId)
           .then(
-              response => {
-                  console.log(response); 
+              response => { 
                   this.setState({
                     //   truckName : response.data.truckName
                     truck : response.data
                     })  
                 //   this.setState({message : `Display of username ${username} Successful`})
-                  console.log("")
               }
           ) 
     }
 
     render() { 
         return (
+            <div>
+            <HeaderComponent></HeaderComponent> 
+
             <div className="wrapper truck-profile-component">
                 {/* {this.props.history.location.pathname} */}
                 <h1>{this.state.truck.truckName}</h1>
@@ -57,6 +56,7 @@ class TruckProfileComponent extends Component {
                     </a>              
                 </div>
                 
+            </div>
             </div>
         )
     }

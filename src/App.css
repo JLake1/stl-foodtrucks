@@ -203,6 +203,10 @@ button.delete{
   color: #003267;
 }
 
+.truck-profile-component img{
+  width: 350px;
+}
+
 /* DIRECTORY */
 
 .directory-tile {

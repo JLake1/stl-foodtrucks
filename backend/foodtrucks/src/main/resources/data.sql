@@ -8,13 +8,13 @@ insert into truck(id, username, description, target_date, is_done)
 values(10003, 'in28minutes', 'React 45 ', sysdate(), false);
 
 insert into truck(id, username, description, target_date, is_done)
-values(10004, 'joe', 'Taco Truck ', sysdate(), false);
+values(10004, 'joe', 'Mission Taco Truck ', sysdate(), false);
 
 insert into truck(id, username, description, target_date, is_done)
-values(10005, 'joe', 'Joes Pizza', sysdate(), false);
+values(10005, 'joe', 'Joe''s Pizza', sysdate(), false);
 
 insert into truck(id, username, description, target_date, is_done)
-values(10006, 'joe', 'Sandwich Truck', sysdate(), false);
+values(10006, 'joe', 'Guerilla Street Food', sysdate(), false);
 
 insert into event(id, truck_name, event_address, event_city, event_date, start_time, end_time, truck_id, img_url) values(30001,'Buzz''s Hawaiian Grill','1234 Main Street','St. Louis, MO 63104',sysdate(),'11:00am','2:00pm','20001','https://i.imgur.com/FVi7ikp.png');
 insert into event(id, truck_name, event_address, event_city, event_date, start_time, end_time, truck_id, img_url) values(30002,'Cheese Shack Food Truck','32 Jefferson Ave','St. Louis, MO 63104',sysdate(),'12:00pm','3:00pm','20002','https://i.imgur.com/isJ3USj.png');
@@ -23,7 +23,8 @@ insert into event(id, truck_name, event_address, event_city, event_date, start_t
 insert into event(id, truck_name, event_address, event_city, event_date, start_time, end_time, truck_id, img_url) values(30005,'Go! Gyro! Go!','245 S. Central Ave','Clayton, MO 63105',sysdate(),'2:00pm','5:00pm','20005','https://i.imgur.com/cpKFZ9J.png');
 insert into event(id, truck_name, event_address, event_city, event_date, start_time, end_time, truck_id, img_url) values(30006,'Guerilla Street Food','1234 Main Street','St. Louis, MO 63104',sysdate(),'5:00pm','7:30pm','20006','https://i.imgur.com/Lc1sI9Q.png');
 insert into event(id, truck_name, event_address, event_city, event_date, start_time, end_time, truck_id, img_url) values(30007,'K-bop','1234 Main Street','St. Louis, MO 63104',sysdate(),'8:00pm','11:00pm','20007','https://i.imgur.com/8n3WUR7.png');
-
+insert into event(id, truck_name, event_address, event_city, event_date, start_time, end_time, truck_id, img_url) values(30008,'Joe''s Pizza','1234 Main Street','St. Louis, MO 63104',sysdate(),'8:00pm','11:00pm','20001','https://i.imgur.com/FVi7ikp.png');
+insert into event(id, truck_name, event_address, event_city, event_date, start_time, end_time, truck_id, img_url) values(30009,'Joe''s Pizza','1234 Main Street','St. Louis, MO 63104',sysdate(),'8:00pm','11:00pm','20001','https://i.imgur.com/FVi7ikp.png');
 
 insert into truck_profile(id, truck_name, categories, img_url) values(20001,'Buzz''s Hawaiian Grill','Asian Fusion','https://i.imgur.com/FVi7ikp.png');
 insert into truck_profile(id, truck_name, categories, img_url) values(20002,'Cheese Shack Food Truck','Sandwiches','https://i.imgur.com/isJ3USj.png');
@@ -41,3 +42,4 @@ insert into truck_profile(id, truck_name, categories, img_url) values(20013,'The
 insert into truck_profile(id, truck_name, categories, img_url) values(20014,'Steak Louie','Sandwiches','https://i.imgur.com/6oRMXWU.png');
 insert into truck_profile(id, truck_name, categories, img_url) values(20015,'The Sweet Divine','Dessert','https://i.imgur.com/zUX6Yab.png');
 insert into truck_profile(id, truck_name, categories, img_url) values(20016,'Yemanja Brasil Restaurante','Brazilian','https://i.imgur.com/aFOi8vf.png');
+insert into truck_profile(id, truck_name, categories, img_url) values(20017,'Joe''s Pizza','Pizza','https://media.istockphoto.com/vectors/vector-illustration-of-italian-pizza-with-pepperoni-slices-vector-id500261194?k=6&m=500261194&s=612x612&w=0&h=Em6s9NaQwfWzLzlsRhUXILmW-d2ENr2PIs7rmi-wXMY=');
