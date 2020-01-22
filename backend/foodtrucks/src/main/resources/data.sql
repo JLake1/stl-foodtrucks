@@ -1,20 +1,11 @@
 insert into truck(id, username, description, target_date, is_done)
-values(10001, 'in28minutes', 'React test', sysdate(), false);
+values(20001, 'joe', 'Buzz''s Hawaiian Grill', sysdate(), false);
 
 insert into truck(id, username, description, target_date, is_done)
-values(10002, 'in28minutes', 'React  2 test', sysdate(), false);
+values(20006, 'joe', 'Guerilla Street Food', sysdate(), false);
 
 insert into truck(id, username, description, target_date, is_done)
-values(10003, 'in28minutes', 'React 45 ', sysdate(), false);
-
-insert into truck(id, username, description, target_date, is_done)
-values(10004, 'joe', 'Mission Taco Truck ', sysdate(), false);
-
-insert into truck(id, username, description, target_date, is_done)
-values(10005, 'joe', 'Joe''s Pizza', sysdate(), false);
-
-insert into truck(id, username, description, target_date, is_done)
-values(10006, 'joe', 'Guerilla Street Food', sysdate(), false);
+values(20009, 'joe', 'Mission Taco Truck ', sysdate(), false);
 
 insert into event(id, truck_name, event_address, event_city, event_date, start_time, end_time, truck_id, img_url) values(30001,'Buzz''s Hawaiian Grill','1234 Main Street','St. Louis, MO 63104',sysdate(),'11:00am','2:00pm','20001','https://i.imgur.com/FVi7ikp.png');
 insert into event(id, truck_name, event_address, event_city, event_date, start_time, end_time, truck_id, img_url) values(30002,'Cheese Shack Food Truck','32 Jefferson Ave','St. Louis, MO 63104',sysdate(),'12:00pm','3:00pm','20002','https://i.imgur.com/isJ3USj.png');
