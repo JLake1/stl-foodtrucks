@@ -21,18 +21,20 @@ public class Truck {
     // TODO: join with trucks' foreign key
     private Date targetDate;
     private boolean isDone;
+    private String urlTag;
 
     protected Truck() {
 
     }
 
-    public Truck(long id, String username, String truckName, String description, Date targetDate, boolean isDone) {
+    public Truck(long id, String username, String truckName, String description, Date targetDate, boolean isDone, String urlTag) {
         this.id = id;
         this.username = username;
         this.truckName = truckName;
         this.description = description;
         this.targetDate = targetDate;
         this.isDone = isDone;
+        this.urlTag = urlTag;
     }
 
     public Long getId() {
@@ -83,6 +85,14 @@ public class Truck {
         isDone = done;
     }
 
+    public String getUrlTag() {
+        return urlTag;
+    }
+
+    public void setUrlTag(String urlTag) {
+        this.urlTag = urlTag;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -95,4 +105,4 @@ public class Truck {
     public int hashCode() {
         return Objects.hash(id);
     }
-}      
+}

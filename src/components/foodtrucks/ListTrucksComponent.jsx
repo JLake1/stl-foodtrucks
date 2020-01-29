@@ -103,7 +103,7 @@ class ListTrucksComponent extends Component {
                             this.state.trucks.map (    
                                 truck =>
                                     <tr key={truck.id}>  
-                                        {/* <td><a href="#">{truck.truckName}</a></td>  */}
+                                        {console.log(truck, truck.id)}
                                         <td><a href={"/truck_profile/" + truck.id}>{truck.description}</a></td>  
                                         <td>{moment(truck.targetDate).format('lll')}</td>   
                                         {/* <td><button className="btn update" onClick={() => this.updateTruckClicked(truck.id)}>Update</button></td> */}

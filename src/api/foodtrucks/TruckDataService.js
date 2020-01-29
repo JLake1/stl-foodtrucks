@@ -30,7 +30,7 @@ class TruckDataService {
         //console.log('executed service')
     }
 
-    updateTruck(name, id, truck) {
+    updateTruck(name, id, truck) { 
         return Axios.put(`${JPA_API_URL}/users/${name}/trucks/${id}`, truck);
         //console.log('executed service')
     }

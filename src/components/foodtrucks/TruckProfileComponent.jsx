@@ -47,18 +47,18 @@ class TruckProfileComponent extends Component {
  
         let truck = {
                 id: values.id, 
-                description: values.description                 
+                description: values.description,
+                urlTag: values.urlTag                 
         }
-
-        console.log(username, truck)
-
-        if (truck.id === -1) {
-            TruckDataService.createTruck(username, truck)
-            console.log("IF")
+ 
+        if (truck.id) { 
+            console.log("if, truck.id: ", truck.id, ", urlTag: ", truck.urlTag)
+            TruckDataService.updateTruck(username, truck.id, truck) 
                 .then(
                     () => { this.props.history.push('/trucks') }
                 )
         } else {
+            console.log("ELSE, truck.id: ", truck.id, ", urlTag: ", truck.urlTag)
             TruckDataService.updateTruck(username, truck.id, truck) 
                 .then(
                     () => { this.props.history.push('/trucks') }
@@ -72,8 +72,9 @@ class TruckProfileComponent extends Component {
 
     render() { 
         // let {id,description} = this.state 
-        let id = this.state.truck.id
+        let id = this.state.truck.id 
         let description = this.state.truck.truckName
+        let urlTag = 234
         return (
             <div>
             <HeaderComponent></HeaderComponent> 
@@ -99,23 +100,14 @@ class TruckProfileComponent extends Component {
 
             <div className="container add-form">
                     <Formik 
-                        initialValues={{id: id,description: description}}
+                        initialValues={{id: id,description: description, urlTag: urlTag}}
                         onSubmit={this.onSubmit}
                         enableReinitialize={true}
                     >
                         {
                             (props) => (
                                 <Form>
-                                    <fieldset>
-                                        <label>Truck Name</label> 
-                                        {/* <Field className="form-control" type="text" name="description"/> */}
-                                    </fieldset>
-
-                                    <fieldset>
-                                        <label>Truck Name</label> 
-                                        <Field className="form-control" type="hidden" name="id"  />
-                                        <Field className="form-control" type="hidden" name="description"  />
-                                    </fieldset>
+                                     
  
                                     <button type="submit" className="btn btn-success">Add Truck</button>
                                 </Form>
