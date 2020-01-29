@@ -13,7 +13,8 @@ class TruckComponent extends Component {
             id : this.props.match.params.id,
             truckName : "",
             description : "",
-            targetDate : moment(new Date()).format('YYYY-MM-DD') 
+            targetDate : moment(new Date()).format('YYYY-MM-DD'),
+            trucks : []
         }
 
         this.onSubmit = this.onSubmit.bind(this)
@@ -21,9 +22,15 @@ class TruckComponent extends Component {
 
     }
 
-    componentDidMount() {
-        
-        if(this.state.id===-1) {
+    componentDidMount() { 
+        if(this.state.id === -1) { 
+            TruckDataService.retrieveAllTruckProfiles()
+                .then(
+                    response => {
+                        this.setState({trucks : response.data})  
+                     }     
+                ) 
+                  
             return
         }
         
@@ -34,7 +41,7 @@ class TruckComponent extends Component {
                 truckName: response.data.truckName,
                 description: response.data.description,
                 targetDate: moment(response.data.targetDate).format('YYYY-MM-DD')
-            }))
+            })) 
     }
     
     validate(values) {
@@ -59,7 +66,7 @@ class TruckComponent extends Component {
                 id: this.state.id,
                 truckName: values.truckName,
                 description: values.description,
-                targetDate: values.targetDate
+                targetDate: values.targetDate                
         }
 
         if (this.state.id === -1) {
@@ -73,19 +80,19 @@ class TruckComponent extends Component {
                     () => { this.props.history.push('/trucks') }
                 )
         }
-
-        // console.log(values)
+ 
     }
 
     render() {
-        let {truckName,description,targetDate} = this.state
+        let {truckName,description,targetDate, trucks} = this.state 
         return (
             <div>
             <HeaderComponent></HeaderComponent> 
 
             <div className="wrapper">
-                <h1>Add Event</h1>
-                {this.state.truckName}
+                <h1>Add Truck</h1>
+ 
+
                 <div className="container add-form">
                     <Formik
                         initialValues={{truckName,description,targetDate}}
@@ -115,6 +122,10 @@ class TruckComponent extends Component {
                                     {/* <fieldset>
                                         <Field className="form-control" type="datetime-local" name="targetDate"/>
                                     </fieldset> */}
+
+
+                                        
+
                                     <button type="submit" className="btn btn-success">Save</button>
                                 </Form>
  

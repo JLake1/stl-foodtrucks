@@ -95,4 +95,4 @@ public class Truck {
     public int hashCode() {
         return Objects.hash(id);
     }
-}
+}      

@@ -109,15 +109,15 @@ class ListTrucksComponent extends Component {
                                         {/* <td><button className="btn update" onClick={() => this.updateTruckClicked(truck.id)}>Update</button></td> */}
                                         {/* <td><button className="btn update" onClick={() => this.updateTruckClicked(truck.id)}><i class="material-icons-outlined">edit</i></button></td> */}
                                         <td>
-                                        <button className="btn update" onClick={() => this.updateTruckClicked(truck.id)}><i class="material-icons">edit</i></button>
-                                            <button className="btn delete" onClick={() => this.deleteTruckClicked(truck.id)}><i class="material-icons">cancel</i></button>
+                                        <button className="btn update" onClick={() => this.updateTruckClicked(truck.id)}><i className="material-icons">edit</i></button>
+                                            <button className="btn delete" onClick={() => this.deleteTruckClicked(truck.id)}><i className="material-icons">cancel</i></button>
                                         </td>
                                     </tr>
                             )
                         }
                         </tbody>
                     </table>
-                    <div class="add ">
+                    <div className="add ">
                         <button className="btn btn-success" onClick={this.addTruckClicked}>Add Truck</button>
                     </div>
                     </div>

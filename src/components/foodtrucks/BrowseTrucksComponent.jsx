@@ -19,13 +19,12 @@ class BrowseTrucksComponent extends Component {
         TruckDataService.retrieveAllTruckProfiles()
           .then(
               response => {
-                //   console.log(response);
                   this.setState({trucks : response.data})  
               }
           ) 
     }
 
-    render() {
+    render() { 
         return (
             <div>
             <HeaderComponent></HeaderComponent> 
