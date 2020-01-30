@@ -263,15 +263,14 @@ button.delete{
 
 .truck-profile-component h5 {
   font-size: 19px;
+  margin-top: 60px;
 } 
 
 .truck-profile-component img{
   width: 250px;
 }
 
-.add-form button {
-  margin-bottom: 60px;
-}
+.add-form button {}
 
 .social-icons{
   text-align: center;

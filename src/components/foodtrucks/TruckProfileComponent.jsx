@@ -54,9 +54,10 @@ class TruckProfileComponent extends Component {
 
  
     }
- 
+
     render() { 
-        // let {id,description} = this.state 
+        const isUserLoggedIn = AuthenticationService.isUserLoggedIn()
+
         let id = this.state.truck.id 
         let urlTag = this.state.truck.id
         let description = this.state.truck.truckName
@@ -65,11 +66,11 @@ class TruckProfileComponent extends Component {
             <div>
             <HeaderComponent></HeaderComponent> 
 
-            <div className="wrapper truck-profile-component">
-                {/* {this.props.history.location.pathname} */}
+            <div className="wrapper truck-profile-component"> 
                 <h1>{this.state.truck.truckName}</h1>
                 <img src={this.state.truck.imgUrl} />
 
+                {isUserLoggedIn &&
                 <div className="container add-form">
                     <Formik 
                         initialValues={{id: id,description: description, urlTag: urlTag}}
@@ -85,6 +86,7 @@ class TruckProfileComponent extends Component {
                         }
                     </Formik>
                 </div>
+    }
 
                 <h5>Categories: {this.state.truck.categories}</h5>
                 <div className="social-icons">
