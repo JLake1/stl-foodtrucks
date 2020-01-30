@@ -104,7 +104,7 @@ class ListTrucksComponent extends Component {
                                 truck =>
                                     <tr key={truck.id}>  
                                         {console.log(truck, truck.id)}
-                                        <td><a href={"/truck_profile/" + truck.id}>{truck.description}</a></td>  
+                                        <td><a href={"/truck_profile/" + truck.urlTag}>{truck.description}</a></td>  
                                         <td>{moment(truck.targetDate).format('lll')}</td>   
                                         {/* <td><button className="btn update" onClick={() => this.updateTruckClicked(truck.id)}>Update</button></td> */}
                                         {/* <td><button className="btn update" onClick={() => this.updateTruckClicked(truck.id)}><i class="material-icons-outlined">edit</i></button></td> */}

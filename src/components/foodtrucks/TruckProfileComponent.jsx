@@ -29,19 +29,13 @@ class TruckProfileComponent extends Component {
         TruckDataService.retrieveTruckProfile(truckId)
           .then(
               response => { 
-                  this.setState({
-                    //   truckName : response.data.truckName
+                  this.setState({ 
                     truck : response.data
-                    })  
-                //   this.setState({message : `Display of username ${username} Successful`})
-              },
-              console.log(this.state.truck.id)
-          ) 
-          console.log(truckId, this.state.id)
+                    })   
+              }
+          )  
     }
-
-    // Copied from truck component --v 
-
+ 
     onSubmit(values) {
         let username = AuthenticationService.getLoggedInUserName()
  
@@ -51,30 +45,22 @@ class TruckProfileComponent extends Component {
                 urlTag: values.urlTag                 
         }
  
-        if (truck.id) { 
-            console.log("if, truck.id: ", truck.id, ", urlTag: ", truck.urlTag)
+        if (truck.id) {  
             TruckDataService.updateTruck(username, truck.id, truck) 
                 .then(
                     () => { this.props.history.push('/trucks') }
                 )
-        } else {
-            console.log("ELSE, truck.id: ", truck.id, ", urlTag: ", truck.urlTag)
-            TruckDataService.updateTruck(username, truck.id, truck) 
-                .then(
-                    () => { this.props.history.push('/trucks') }
-                )
-        }
+        }  
 
  
     }
-
-    // END COPY
-
+ 
     render() { 
         // let {id,description} = this.state 
         let id = this.state.truck.id 
+        let urlTag = this.state.truck.id
         let description = this.state.truck.truckName
-        let urlTag = 234
+        
         return (
             <div>
             <HeaderComponent></HeaderComponent> 
@@ -83,7 +69,24 @@ class TruckProfileComponent extends Component {
                 {/* {this.props.history.location.pathname} */}
                 <h1>{this.state.truck.truckName}</h1>
                 <img src={this.state.truck.imgUrl} />
-                <h4>{this.state.truck.categories}</h4>
+
+                <div className="container add-form">
+                    <Formik 
+                        initialValues={{id: id,description: description, urlTag: urlTag}}
+                        onSubmit={this.onSubmit}
+                        enableReinitialize={true}
+                    >
+                        {
+                            (props) => (
+                                <Form>
+                                    <button type="submit" className="btn btn-success">Add to My Trucks</button>
+                                </Form>
+                            )
+                        }
+                    </Formik>
+                </div>
+
+                <h5>Categories: {this.state.truck.categories}</h5>
                 <div className="social-icons">
                     <a href="#" target="_blank">
                         <FontAwesomeIcon icon={faFacebookF} />
@@ -97,25 +100,6 @@ class TruckProfileComponent extends Component {
                 </div>
                 
             </div>
-
-            <div className="container add-form">
-                    <Formik 
-                        initialValues={{id: id,description: description, urlTag: urlTag}}
-                        onSubmit={this.onSubmit}
-                        enableReinitialize={true}
-                    >
-                        {
-                            (props) => (
-                                <Form>
-                                     
- 
-                                    <button type="submit" className="btn btn-success">Add Truck</button>
-                                </Form>
- 
-                            )
-                        }
-                    </Formik>
-                </div>
 
             </div>
         )

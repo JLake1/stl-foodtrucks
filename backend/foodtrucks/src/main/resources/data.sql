@@ -1,7 +1,7 @@
-insert into truck(id, username, description, target_date, is_done)
+insert into truck(id, username, description, target_date, is_done, url_tag)
 values(20001, 'joe', 'Buzz''s Hawaiian Grill', sysdate(), false, '20001');
 
-insert into truck(id, username, description, target_date, is_done)
+insert into truck(id, username, description, target_date, is_done, url_tag)
 values(20006, 'joe', 'Guerilla Street Food', sysdate(), false, '20006');
 
 insert into truck(id, username, description, target_date, is_done, url_tag)
