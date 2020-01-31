@@ -15,7 +15,7 @@ public class Event {
     private String truckName;
     private String eventAddress;
     private String eventCity;
-    private Date eventDate;
+    private String eventDate;
     private String startTime;
     private String endTime;
     private Long truckId;
@@ -25,7 +25,7 @@ public class Event {
 
     }
 
-    public Event(long id, String truckName, String eventAddress, String eventCity, Date eventDate, String startTime, String endTime, long truckId, String imgUrl) {
+    public Event(long id, String truckName, String eventAddress, String eventCity, String eventDate, String startTime, String endTime, long truckId, String imgUrl) {
         this.id = id;
         this.truckName = truckName;
         this.eventAddress = eventAddress;
@@ -69,11 +69,11 @@ public class Event {
         this.eventCity = eventCity;
     }
 
-    public Date getEventDate() {
+    public String getEventDate() {
         return eventDate;
     }
 
-    public void setEventDate(Date eventDate) {
+    public void setEventDate(String eventDate) {
         this.eventDate = eventDate;
     }
 

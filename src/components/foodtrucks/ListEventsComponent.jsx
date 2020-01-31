@@ -34,11 +34,13 @@ class ListEventsComponent extends Component {
 
         // this.sendData()
  
-        var date = new Date().getDate();  
-        var month = new Date().getMonth() + 1;  
-        var year = new Date().getFullYear();
-        var todaysDate = month + '/' + date + '/' + year 
-        // console.log(month, "/", date, "/", year)
+        var date = new Date().getDate()
+        var month = new Date().getMonth() + 1  
+        var year = new Date().getFullYear()
+        year = year.toString().substr(-2)
+        var todaysDate = month + '-' + date + '-' + year
+        var todaysDate = todaysDate.toString() 
+
         this.refreshEvents() 
         let username = AuthenticationService.getLoggedInUserName()
         EventDataService.retrieveAllEvents(username)
@@ -47,9 +49,8 @@ class ListEventsComponent extends Component {
                   this.setState({events : response.data}) 
                   this.setState({username : `${username}`})
                   this.setState({todaysDate : `${todaysDate}`})
- 
               }
-          ) 
+          )     
     }
 
     refreshEvents() {
@@ -58,7 +59,6 @@ class ListEventsComponent extends Component {
           .then(
               response => { 
                   this.setState({events : response.data})
-                //   console.log(username)
               }
           ) 
     }
@@ -75,9 +75,7 @@ class ListEventsComponent extends Component {
     }
 
     updateEventClicked(id) {
-        // console.log('update' + id)  
         this.props.history.push(`/events/`)      
- 
     }
 
     addEventClicked(id) {
@@ -86,7 +84,8 @@ class ListEventsComponent extends Component {
     
     render() {
         const isUserLoggedIn = AuthenticationService.isUserLoggedIn()
- 
+        let todaysDate = this.state.todaysDate 
+
         return (
             <div>
             <HeaderComponent></HeaderComponent> 
@@ -104,24 +103,29 @@ class ListEventsComponent extends Component {
                     <table className="table table-hover">
                         <thead className="thead-dark">
                             <tr>  
-                                <th colSpan="2">Truck</th> 
+                                <th colspan="2">Truck</th> 
                                 <th className="event-truckAddress-col">Address</th>
                                 <th>Time</th>
+                                {/* <th>Date</th> */}
                                 {/* <th>Update</th>
                                 <th>Delete</th> */}
                                 {/* <th className="delete-col"></th> */}
-                                
+                                 
                             </tr>
                         </thead>
                         <tbody>
                         {
                             this.state.events.map (    
                                 event =>
-                                    <tr key={event.id}>    
+                                    <tr key={event.id}>  
+                                    {event.eventDate == todaysDate ? (<>
+
+                                         
                                         <td className="event-truckLogo-cell"><a href={"/truck_profile/" + event.truckId}><img src={event.imgUrl} /></a></td>
                                         <td className="event-truckName-cell"><a href={"/truck_profile/" + event.truckId}>{event.truckName}</a></td> 
                                         <td><a href={"https://www.google.com/search?q=" + event.eventAddress + " " + event.eventCity} >{event.eventAddress}<br />{event.eventCity}</a></td>
                                         <td>{event.startTime} - {event.endTime}</td>
+                                        {/* <td>{event.eventDate}</td>   */}
                                         {/* <td>{start time} - {end time}</td> */}
                                         {/* <td>{moment(event.eventDate).format('lll')}</td>  */}
                                         {/* <td><button className="btn update" onClick={() => this.updateEventClicked(event.id)}>Update</button></td> */}
@@ -130,7 +134,10 @@ class ListEventsComponent extends Component {
                                         <button className="btn update" onClick={() => this.updateEventClicked(event.id)}><i class="material-icons">edit</i></button>
                                             <button className="btn delete" onClick={() => this.deleteEventClicked(event.id)}><i class="material-icons">cancel</i></button>
                                         </td> */}
+                                    </>) : (<></>)
+                                    } 
                                     </tr>
+                                    
                             )
                         }
                         </tbody>
