@@ -20,6 +20,10 @@ h1, h2, h3, h4, h5, h6 {
   width: 100%;
 }
 
+.navbar-dark .navbar-nav .nav-link {
+  color: rgba(255,255,255,.9);
+}
+
 .branding-col {
   padding-left: 58px !important;
   font-family: 'Red Hat Text';
