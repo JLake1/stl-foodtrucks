@@ -56,7 +56,6 @@ class ListUpcomingEventsComponent extends Component {
             <HeaderComponent></HeaderComponent> 
             
             <div className="wrapper list-events-component">
-                 {/* {this.props.dataFromParent} */}
                 {this.state.message && <div className="alert alert-success">{this.state.message}</div>}
                 <div className="container">
                 <div className="row"> 
@@ -88,19 +87,11 @@ class ListUpcomingEventsComponent extends Component {
                         }
                         </tbody>
                     </table>
-                    <div class="add ">
-                    {isUserLoggedIn && <button className="btn btn-success" onClick={this.addEventClicked}>Add Event</button>}
-                    </div>
-                    </div>
-                    {/* end main content section */}
-                    {/* sidebar */}
-                    {/* <div className="col-sm-2 owner-sidebar">
-                        <h3>Sidebar</h3>
-                    </div> */}
                     </div>
             </div>
             </div>
-            </div>
+        </div>
+        </div>
         )
     }
 }
