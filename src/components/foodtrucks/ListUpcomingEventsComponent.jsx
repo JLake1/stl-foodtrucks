@@ -25,7 +25,8 @@ class ListUpcomingEventsComponent extends Component {
         var todaysDate = todaysDate.toString() 
 
         this.refreshEvents() 
-        let username = AuthenticationService.getLoggedInUserName()
+        // let username = AuthenticationService.getLoggedInUserName()
+        let username = 'user'
         EventDataService.retrieveAllEvents(username)
           .then(
               response => { 
@@ -37,7 +38,8 @@ class ListUpcomingEventsComponent extends Component {
     }
 
     refreshEvents() {
-        let username = AuthenticationService.getLoggedInUserName()
+        // let username = AuthenticationService.getLoggedInUserName()
+        let username = 'user'
         EventDataService.retrieveAllEvents(username)
           .then(
               response => { 

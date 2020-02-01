@@ -7,5 +7,5 @@ import java.util.List;
 
 @Repository
 public interface EventJpaRepository extends JpaRepository<Event, Long> {
-    List<Event> findByTruckName(String truckName);
+    List<Event> findByUsername(String username);
 }

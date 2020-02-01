@@ -13,9 +13,6 @@ import java.util.List;
 @RestController
 public class TruckJpaResource {
 
-//    @Autowired
-//    private TruckHardcodedService truckService;
-
     @Autowired
     private TruckJpaRepository truckJpaRepository;
 

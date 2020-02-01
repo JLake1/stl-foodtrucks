@@ -42,7 +42,7 @@ class ListEventsComponent extends Component {
         var todaysDate = todaysDate.toString() 
 
         this.refreshEvents() 
-        let username = AuthenticationService.getLoggedInUserName()
+        let username = "user"
         EventDataService.retrieveAllEvents(username)
           .then(
               response => { 
@@ -54,7 +54,7 @@ class ListEventsComponent extends Component {
     }
 
     refreshEvents() {
-        let username = AuthenticationService.getLoggedInUserName()
+        let username = "user"
         EventDataService.retrieveAllEvents(username)
           .then(
               response => { 
@@ -63,24 +63,24 @@ class ListEventsComponent extends Component {
           ) 
     }
 
-    deleteEventClicked(id) {
-        let username = AuthenticationService.getLoggedInUserName()
-        EventDataService.deleteEvent(username, id)
-          .then (
-              response => {
-                  this.setState({message : `Delete of event ${id} Successful`})
-                  this.refreshEvents()
-              }
-          )
-    }
+    // deleteEventClicked(id) {
+    //     let username = AuthenticationService.getLoggedInUserName()
+    //     EventDataService.deleteEvent(username, id)
+    //       .then (
+    //           response => {
+    //               this.setState({message : `Delete of event ${id} Successful`})
+    //               this.refreshEvents()
+    //           }
+    //       )
+    // }
 
-    updateEventClicked(id) {
-        this.props.history.push(`/events/`)      
-    }
+    // updateEventClicked(id) {
+    //     this.props.history.push(`/events/`)      
+    // }
 
-    addEventClicked(id) {
-        this.props.history.push(`/Events/-1`)  
-    }
+    // addEventClicked(id) {
+    //     this.props.history.push(`/Events/-1`)  
+    // }
     
     render() {
         const isUserLoggedIn = AuthenticationService.isUserLoggedIn()

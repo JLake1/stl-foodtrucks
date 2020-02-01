@@ -9,6 +9,7 @@ import BrowseTrucksComponent from './BrowseTrucksComponent.jsx'
 import TruckProfileComponent from './TruckProfileComponent.jsx'
 import ListTrucksComponent from './ListTrucksComponent.jsx'
 import ListEventsComponent from './ListEventsComponent.jsx'
+import AddEventComponent from './AddEventComponent.jsx'
 import ListUpcomingEventsComponent from './ListUpcomingEventsComponent.jsx'  
 import FooterComponent from './FooterComponent.jsx'
 import TruckComponent from './TruckComponent.jsx'
@@ -56,8 +57,8 @@ class FoodtrucksApp extends Component {
                         <AuthenticatedRoute path="/welcome/:name" component={WelcomeComponent}/>
                         <AuthenticatedRoute path="/trucks/:id" component={TruckComponent}/>
                         <Route path="/browse" component={BrowseTrucksComponent}/>
-                        <Route path="/truck_profile" component={TruckProfileComponent}/>
-                        <Route path="/events" component={ListEventsComponent}  />
+                        <Route path="/truck_profile" component={TruckProfileComponent}/> 
+                        <Route path="/add-event" component={AddEventComponent}  />
                         <Route path="/upcoming-events" component={ListUpcomingEventsComponent}  />
                         <Route path="/trucks" component={ListTrucksComponent}/>  
                         <AuthenticatedRoute path="/logout" component={LogoutComponent}/>

@@ -60,7 +60,8 @@ class HeaderComponent extends Component {
                             <li><Link className="nav-link" to="/">Home</Link></li>
                             {isUserLoggedIn && <li><Link className="nav-link" to="/trucks">My Trucks</Link></li>}
                             <li><Link className="nav-link" to="/browse">Browse</Link></li>
-                            <li><Link className="nav-link" to="/upcoming-events">Upcoming Events</Link></li>     
+                            <li><Link className="nav-link" to="/upcoming-events">Upcoming Events</Link></li> 
+                            <li><Link className="nav-link" to="/add-event">Add Event</Link></li>     
                             {isUserLoggedIn && <li><Link className="nav-link" to="/events">Events</Link></li>}
                         </ul>
                         </div>

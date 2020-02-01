@@ -12,6 +12,7 @@ public class Event {
     @Id
     @GeneratedValue
     private Long id;
+    private String username;
     private String truckName;
     private String eventAddress;
     private String eventCity;
@@ -25,8 +26,9 @@ public class Event {
 
     }
 
-    public Event(long id, String truckName, String eventAddress, String eventCity, String eventDate, String startTime, String endTime, long truckId, String imgUrl) {
+    public Event(long id, String username, String truckName, String eventAddress, String eventCity, String eventDate, String startTime, String endTime, long truckId, String imgUrl) {
         this.id = id;
+        this.username = username;
         this.truckName = truckName;
         this.eventAddress = eventAddress;
         this.eventCity = eventCity;
@@ -43,6 +45,14 @@ public class Event {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getTruckName() {

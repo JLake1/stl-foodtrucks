@@ -37,6 +37,11 @@ h1, h2, h3, h4, h5, h6 {
   margin: 0 12px 0 0;
 }
 
+.header-user .nav-link {
+  text-transform: capitalize; 
+  margin-right: 14px;
+}
+
 .header-user img {
   max-height: 30px;
   margin: 0 4px 0 0;
@@ -93,12 +98,7 @@ table td {
 .owner-content .table td, .table th {
   vertical-align: middle;
 }
-
-/* .owner-sidebar {
-  background-color: #f5f5f5;
-  padding: 20px 12px;
-} */
-
+ 
 .thead-dark th {
   font-weight: normal;
   border-width: 3px;
