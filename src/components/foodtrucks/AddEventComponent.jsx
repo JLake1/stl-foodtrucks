@@ -1,5 +1,5 @@
-import React, {Component} from 'react' 
-import moment from 'moment'
+import React, {Component} from 'react'  
+import moment from 'moment';
 import { Formik, Form, Field, ErrorMessage } from 'formik'  
 import TruckDataService from '../../api/foodtrucks/TruckDataService.js' 
 import EventDataService from '../../api/foodtrucks/EventDataService.js' 
@@ -39,42 +39,45 @@ class AddEventComponent extends Component {
  
     onSubmit(values) { 
         let username = 'user'
- 
-        console.log(this.state.truck.truckName)
+        
+        let date = values.eventDate.slice(5)
+        let year = values.eventDate.slice(2,4)
+        let eventDate = date + '-' + year
+         
+        console.log("Date: ", eventDate)
 
         let event = { 
                 truckName: this.state.truck.truckName,
-                imgUrl: this.state.truck.imgUrl,
-                // 
-                id: '222',
-                startTime: '1:00pm',
-                endTime: '2:00pm', 
-                eventDate: '2-5-20',
-                eventAddress: values.eventAddress,
-                eventCity: values.eventCity,
+                imgUrl: this.state.truck.imgUrl, 
+                startTime: values.startTime,
+                endTime: values.endTime, 
+                eventDate: eventDate,
+                eventAddress: values.street,
+                eventCity: "St. Louis, MO",
                 imgUrl: this.state.truck.imgUrl, 
                 truckId: this.state.truck.id, 
-                username: 'user'
-
-        }
-        console.log(event)
- 
-        if (event) { 
-            console.log("IF", values)
-            EventDataService.updateEvent(username, this.state.id, event)
-                .then(
-                    () => { this.props.history.push('/upcoming-events') }
-                )
-        } else {
-            console.log("ELSE")
-            EventDataService.createEvent(username, event)
-                .then(
-                    () => { this.props.history.push('/upcoming-events') }
-                )
+                username: 'user' 
         }
 
         
  
+        if (event) { 
+            console.log("IF", values)
+            console.log(event)
+            console.log(typeof event.startTime)
+            EventDataService.updateEvent(username, this.state.id, event)
+                .then(
+                    () => { this.props.history.push('/upcoming-events') }
+                )
+        } 
+        // else {
+        //     console.log("ELSE")
+        //     EventDataService.createEvent(username, event)
+        //         .then(
+        //             () => { this.props.history.push('/upcoming-events') }
+        //         )
+        // }
+
     }
 
     render() { 
@@ -106,23 +109,28 @@ class AddEventComponent extends Component {
                                 <Form>
                                     <ErrorMessage name="description" component="div" className="alert alert-warning"/>
                                     <ErrorMessage name="targetDate" component="div" className="alert alert-warning"/>
-                                    {/* <fieldset>
-                                        <label>Truck Name</label>
-                                        <Field className="form-control" type="text" name="truckName"/>
-                                    </fieldset>                                     */}
+                                  
                                     <fieldset>
-                                        <label>Truck Name</label> 
-                                        <Field className="form-control" type="text" name="truckName"/>
+                                        <label>Street Address</label> 
+                                        <Field className="form-control" type="text" name="street"/>
                                     </fieldset>
-                                    {/* <fieldset>
-                                        <label>Date</label>
-                                        <Field className="form-control" type="date" name="targetDate"/>
-                                    </fieldset> */}
-                                    {/* <fieldset>
-                                        <Field className="form-control" type="datetime-local" name="targetDate"/>
-                                    </fieldset> */}
 
+                                    <fieldset>
+                                        <label>Start Time</label> 
+                                        <Field className="form-control" type="time" name="startTime"/>
+                                    </fieldset>
 
+                                    <fieldset>
+                                        <label>End Time</label> 
+                                        <Field className="form-control" type="time" name="endTime"/>
+                                    </fieldset>
+
+                                    <fieldset>
+                                        <label>Date</label> 
+                                        <Field className="form-control" type="date" name="eventDate"/>
+                                    </fieldset>
+
+                                    
                                         
 
                                     <button type="submit" className="btn btn-success">Save</button>
