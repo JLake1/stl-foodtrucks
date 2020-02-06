@@ -12,7 +12,7 @@ class TruckProfileComponent extends Component {
         super(props)
         this.state = {
             truck : "", 
-            id : 20002, 
+            // id : 20002, 
             description : "",
             targetDate : moment(new Date()).format('YYYY-MM-DD') 
         }
@@ -69,6 +69,7 @@ class TruckProfileComponent extends Component {
             <div className="wrapper truck-profile-component"> 
                 <h1>{this.state.truck.truckName}</h1>
                 <img src={this.state.truck.imgUrl} />
+                <a href={"/add-event/" + this.state.truck.id}><button>Add Event</button></a>
 
                 {isUserLoggedIn &&
                 <div className="container add-form">

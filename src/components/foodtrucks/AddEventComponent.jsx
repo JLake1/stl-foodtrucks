@@ -1,95 +1,100 @@
-import React, {Component} from 'react'
+import React, {Component} from 'react' 
 import moment from 'moment'
-import { Formik, Form, Field, ErrorMessage } from 'formik'
-import EventDataService from '../../api/foodtrucks/EventDataService.js'
+import { Formik, Form, Field, ErrorMessage } from 'formik'  
+import TruckDataService from '../../api/foodtrucks/TruckDataService.js' 
+import EventDataService from '../../api/foodtrucks/EventDataService.js' 
 import HeaderComponent from './HeaderComponent'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faFacebookF, faTwitter, faYelp } from '@fortawesome/free-brands-svg-icons'
 import AuthenticationService from './AuthenticationService.js'
-
 
 class AddEventComponent extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            // id : this.props.match.params.id,
-            // truckName : ""
-            id: 123,
-            truckName: 'Test Event'
+            truck : "", 
+            trucks : [], 
+            id: this.props.match.params.id
         }
-        this.onSubmit = this.onSubmit.bind(this) 
+ 
+        this.onSubmit = this.onSubmit.bind(this)
+
     }
 
-    componentDidMount() { 
-        if(this.state.id === -1) { 
-            EventDataService.retrieveAllEventProfiles()
-                .then(
-                    response => {
-                        this.setState({trucks : response.data})  
-                     }     
-                )            
-            return
-        }
-        
-        let username = AuthenticationService.getLoggedInUserName()
-        
-        EventDataService.retrieveEvent(username, this.state.id)
-            .then(response => this.setState({
-                truckName: response.data.truckName
-            })) 
+    componentDidMount() {
+        var truckUrl = this.props.history.location.pathname
+        var truckId = truckUrl.replace("/add-event/", "")
+        this.state.id = truckId
+        console.log(this.state.id)
+
+        TruckDataService.retrieveTruckProfile(truckId)
+          .then(
+              response => { 
+                  this.setState({ 
+                    truck : response.data
+                    })   
+              }
+          )  
     }
-    
-    // validate(values) {
-    //     let errors = {}
-    //     if(!values.description) {
-    //         errors.description = 'Enter a description'
-    //     } else if(values.description.length<5) {
-    //         errors.description = 'Description must be at least 5 characters'
-    //     }
-
-    //     if(!moment(values.targetDate).isValid()) {
-    //         errors.targetDate = 'Enter a valid date'
-    //     }
-    //     return errors
-    // }
-
+ 
     onSubmit(values) { 
         let username = 'user'
+ 
+        console.log(this.state.truck.truckName)
 
-        let event = {
-                id: this.state.id,
-                truckName: values.truckName        
+        let event = { 
+                truckName: this.state.truck.truckName,
+                imgUrl: this.state.truck.imgUrl,
+                // 
+                id: '222',
+                startTime: '1:00pm',
+                endTime: '2:00pm', 
+                eventDate: '2-5-20',
+                eventAddress: values.eventAddress,
+                eventCity: values.eventCity,
+                imgUrl: this.state.truck.imgUrl, 
+                truckId: this.state.truck.id, 
+                username: 'user'
+
         }
         console.log(event)
-
-        if (event.id) { 
-            EventDataService.updateEvent(username, event.id, event)
+ 
+        if (event) { 
+            console.log("IF", values)
+            EventDataService.updateEvent(username, this.state.id, event)
+                .then(
+                    () => { this.props.history.push('/upcoming-events') }
+                )
+        } else {
+            console.log("ELSE")
+            EventDataService.createEvent(username, event)
                 .then(
                     () => { this.props.history.push('/upcoming-events') }
                 )
         }
-        // } else {
-        //     console.log("ELSE")
-        //     EventDataService.updateEvent(username, this.state.id, event)
-        //         .then(
-        //             () => { this.props.history.push('/upcoming-events') }
-        //         )
-        // }
+
+        
  
     }
 
-    render() {
-        let id = this.id
-        let truckName = this.state 
+    render() { 
+        const isUserLoggedIn = AuthenticationService.isUserLoggedIn()
+
+        let id = this.state.truck.id 
+        let urlTag = this.state.truck.id
+        let description = this.state.truck.truckName
+        let {truckName,targetDate, trucks} = this.state
+        
         return (
             <div>
             <HeaderComponent></HeaderComponent> 
 
-            <div className="wrapper">
-                <h1>Add Truck</h1>
- 
-
+            <div className="wrapper truck-profile-component"> 
+                <h1>Add event <br />{this.state.truck.truckName}</h1>
+           
                 <div className="container add-form">
                     <Formik
-                        initialValues={{id: id, truckName: truckName}}
+                        // initialValues={{truckName,description,targetDate}}
                         onSubmit={this.onSubmit}
                         validateOnChange={false}
                         validateOnBlur={false}
@@ -127,7 +132,11 @@ class AddEventComponent extends Component {
                         }
                     </Formik>
                 </div>
+     
+ 
+                
             </div>
+
             </div>
         )
     }
