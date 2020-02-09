@@ -270,12 +270,7 @@ button.delete{
   font-size: 19px;
   border-radius: 4px;
 }
-
-.truck-profile-component h5 {
-  font-size: 19px;
-  margin-top: 60px;
-} 
-
+ 
 .truck-profile-component img{
   width: 250px;
 }
@@ -287,6 +282,31 @@ button.delete{
 .event-btn-wrapper button, .add-event-btn-form button {
   width: 150px;
   margin: 0 14px;
+}
+
+.categories-wrapper {
+  /* border: solid 1px #cacaca; */
+  max-width: 400px;
+  display: block;
+  margin: 27px auto 0px;
+  border-radius: 3px;
+  background-color: #343a40;
+  margin-top: 40px;
+}
+
+.categories-head {
+  color: #ffffff;
+}
+
+.categories-head h5{
+  font-weight: normal;
+  padding: 8px 14px;
+  margin-bottom: 0
+}
+
+.categories-body {
+  background-color: #ffffff;
+  padding: 8px 14px;
 }
 
 .social-icons{

@@ -98,7 +98,15 @@ class TruckProfileComponent extends Component {
                     </a>
                 </div>
  
-                <h5>Categories: {this.state.truck.categories}</h5>
+                <div className="categories-wrapper">
+                <div className="categories-head">
+                <h5>Categories</h5>
+                </div>
+                <div className="categories-body">
+                {this.state.truck.categories}
+                </div>
+                </div>
+
                 <div className="social-icons">
                     <a href="#" target="_blank">
                         <FontAwesomeIcon icon={faFacebookF} />
