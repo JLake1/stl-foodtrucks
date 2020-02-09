@@ -55,22 +55,21 @@ class HeaderComponent extends Component {
                 <nav className="navbar navbar-expand-md navbar-dark bg-dark">
                     <div className="row">
                     
-                        <div className="col-sm-4">
+                        <div className="col-sm-5">
                         <ul className="navbar-nav"> 
                             <li><Link className="nav-link" to="/">Home</Link></li>
                             {isUserLoggedIn && <li><Link className="nav-link" to="/trucks">My Trucks</Link></li>}
                             <li><Link className="nav-link" to="/browse">Browse</Link></li>
                             <li><Link className="nav-link" to="/upcoming-events">Upcoming Events</Link></li> 
-                            <li><Link className="nav-link" to="/add-event">Add Event</Link></li>     
-                            {isUserLoggedIn && <li><Link className="nav-link" to="/events">Events</Link></li>}
+                            <li><Link className="nav-link" to="/add-event">Add Event</Link></li>      
                         </ul>
                         </div>
                         
-                        <div className="col-sm-4 branding-col">
+                        <div className="col-sm-2 branding-col">
                         <a href="/" className="navbar-brand">STL FOODTRUCKS</a>
                         </div>
 
-                        <div className="col-sm-4">
+                        <div className="col-sm-5">
                         <ul className="navbar-nav login"> 
                             {isUserLoggedIn && <li className="header-user"><Link className="nav-link" to="#"><img src={profile} /> Welcome {this.state.username}</Link></li>}
                             {!isUserLoggedIn && <li><Link className="nav-link" to="/login">Login</Link></li>}
