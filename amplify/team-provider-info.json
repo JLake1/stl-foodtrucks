@@ -1,0 +1,15 @@
+{
+    "default": {
+        "awscloudformation": {
+            "AuthRoleName": "amplify-foodtrucks-default-162952-authRole",
+            "UnauthRoleArn": "arn:aws:iam::296419864987:role/amplify-foodtrucks-default-162952-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::296419864987:role/amplify-foodtrucks-default-162952-authRole",
+            "Region": "us-east-2",
+            "DeploymentBucketName": "amplify-foodtrucks-default-162952-deployment",
+            "UnauthRoleName": "amplify-foodtrucks-default-162952-unauthRole",
+            "StackName": "amplify-foodtrucks-default-162952",
+            "StackId": "arn:aws:cloudformation:us-east-2:296419864987:stack/amplify-foodtrucks-default-162952/87399470-4ac2-11ea-be07-02402ec64522",
+            "AmplifyAppId": "d1qvvzsbajf5mh"
+        }
+    }
+}
