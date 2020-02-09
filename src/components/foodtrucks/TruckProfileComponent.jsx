@@ -68,12 +68,13 @@ class TruckProfileComponent extends Component {
 
             <div className="wrapper truck-profile-component"> 
                 <div className="profile-banner">
+                
                     <h1>{this.state.truck.truckName}</h1>
                     <img src={this.state.truck.imgUrl} />
                 </div>
 
                 {isUserLoggedIn &&
-                <div className="container add-form">
+                <div className="add-event-btn-form">
                     <Formik 
                         initialValues={{id: id,description: description, urlTag: urlTag}}
                         onSubmit={this.onSubmit}
@@ -89,13 +90,14 @@ class TruckProfileComponent extends Component {
                     </Formik>
                 </div>
     }
-
-                <a href={"/add-event/" + this.state.truck.id} className="add-event-btn">
-                    <button className="btn btn-success">
-                        Add Event
-                    </button>
-                </a>
-
+                <div className="event-btn-wrapper">
+                    <a href={"/add-event/" + this.state.truck.id} className="add-event-btn">
+                        <button className="btn btn-success">
+                            Add Event
+                        </button>
+                    </a>
+                </div>
+ 
                 <h5>Categories: {this.state.truck.categories}</h5>
                 <div className="social-icons">
                     <a href="#" target="_blank">

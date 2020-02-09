@@ -259,10 +259,6 @@ button.delete{
   padding-top: 45px;
 }
 
-.truck-profile-component button {
-  width: 150px;
-}
-
 .truck-profile-component h4 {
   background-color: #1155a7;
   color: #ffffff;
@@ -283,13 +279,14 @@ button.delete{
 .truck-profile-component img{
   width: 250px;
 }
- 
-.add-form {
-  margin-bottom: 18px;
+
+.event-btn-wrapper, .add-event-btn-form {
+  display: inline-block;
 }
 
-.add-event-btn {
-  clear: both;
+.event-btn-wrapper button, .add-event-btn-form button {
+  width: 150px;
+  margin: 0 14px;
 }
 
 .social-icons{
