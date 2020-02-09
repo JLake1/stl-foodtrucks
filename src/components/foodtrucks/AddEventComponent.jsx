@@ -93,7 +93,7 @@ class AddEventComponent extends Component {
             <HeaderComponent></HeaderComponent> 
 
             <div className="wrapper truck-profile-component"> 
-                <h1>Add event <br />{this.state.truck.truckName}</h1>
+                <h1>Add Event <br />{this.state.truck.truckName}</h1>
            
                 <div className="container add-form">
                     <Formik

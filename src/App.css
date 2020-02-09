@@ -250,8 +250,17 @@ button.delete{
 
 /* TRUCK PROFILE COMPONENT */
 
-.truck-profile-component h1{
+
+.profile-banner {
+  margin-bottom: 18px;
+}
+
+.profile-banner h1{
   padding-top: 45px;
+}
+
+.truck-profile-component button {
+  width: 150px;
 }
 
 .truck-profile-component h4 {
@@ -274,8 +283,14 @@ button.delete{
 .truck-profile-component img{
   width: 250px;
 }
+ 
+.add-form {
+  margin-bottom: 18px;
+}
 
-.add-form button {}
+.add-event-btn {
+  clear: both;
+}
 
 .social-icons{
   text-align: center;

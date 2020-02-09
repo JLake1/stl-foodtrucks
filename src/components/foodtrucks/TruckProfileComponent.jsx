@@ -67,9 +67,10 @@ class TruckProfileComponent extends Component {
             <HeaderComponent></HeaderComponent> 
 
             <div className="wrapper truck-profile-component"> 
-                <h1>{this.state.truck.truckName}</h1>
-                <img src={this.state.truck.imgUrl} />
-                <a href={"/add-event/" + this.state.truck.id}><button>Add Event</button></a>
+                <div className="profile-banner">
+                    <h1>{this.state.truck.truckName}</h1>
+                    <img src={this.state.truck.imgUrl} />
+                </div>
 
                 {isUserLoggedIn &&
                 <div className="container add-form">
@@ -88,6 +89,12 @@ class TruckProfileComponent extends Component {
                     </Formik>
                 </div>
     }
+
+                <a href={"/add-event/" + this.state.truck.id} className="add-event-btn">
+                    <button className="btn btn-success">
+                        Add Event
+                    </button>
+                </a>
 
                 <h5>Categories: {this.state.truck.categories}</h5>
                 <div className="social-icons">
