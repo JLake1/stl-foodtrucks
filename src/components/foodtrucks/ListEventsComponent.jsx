@@ -31,15 +31,17 @@ class ListEventsComponent extends Component {
        }
  
     componentDidMount() { 
-
-        // this.sendData()
  
         var date = new Date().getDate()
         var month = new Date().getMonth() + 1  
+        month = month.toString()
+        if (month.length == 1) {
+            month = '0' + month
+        } 
         var year = new Date().getFullYear()
         year = year.toString().substr(-2)
         var todaysDate = month + '-' + date + '-' + year
-        var todaysDate = todaysDate.toString() 
+        todaysDate = todaysDate.toString() 
 
         this.refreshEvents() 
         let username = "user"
@@ -62,25 +64,6 @@ class ListEventsComponent extends Component {
               }
           ) 
     }
-
-    // deleteEventClicked(id) {
-    //     let username = AuthenticationService.getLoggedInUserName()
-    //     EventDataService.deleteEvent(username, id)
-    //       .then (
-    //           response => {
-    //               this.setState({message : `Delete of event ${id} Successful`})
-    //               this.refreshEvents()
-    //           }
-    //       )
-    // }
-
-    // updateEventClicked(id) {
-    //     this.props.history.push(`/events/`)      
-    // }
-
-    // addEventClicked(id) {
-    //     this.props.history.push(`/Events/-1`)  
-    // }
     
     render() {
         const isUserLoggedIn = AuthenticationService.isUserLoggedIn()
@@ -125,15 +108,7 @@ class ListEventsComponent extends Component {
                                         <td className="event-truckName-cell"><a href={"/truck_profile/" + event.truckId}>{event.truckName}</a></td> 
                                         <td><a href={"https://www.google.com/search?q=" + event.eventAddress + " " + event.eventCity} >{event.eventAddress}<br />{event.eventCity}</a></td>
                                         <td>{event.startTime} - {event.endTime}</td>
-                                        {/* <td>{event.eventDate}</td>   */}
-                                        {/* <td>{start time} - {end time}</td> */}
-                                        {/* <td>{moment(event.eventDate).format('lll')}</td>  */}
-                                        {/* <td><button className="btn update" onClick={() => this.updateEventClicked(event.id)}>Update</button></td> */}
-                                        {/* <td><button className="btn update" onClick={() => this.Event(event.id)}><i class="material-icons-outlined">edit</i></button></td> */}
-                                        {/* <td>
-                                        <button className="btn update" onClick={() => this.updateEventClicked(event.id)}><i class="material-icons">edit</i></button>
-                                            <button className="btn delete" onClick={() => this.deleteEventClicked(event.id)}><i class="material-icons">cancel</i></button>
-                                        </td> */}
+ 
                                     </>) : (<></>)
                                     } 
                                     </tr>
@@ -142,15 +117,7 @@ class ListEventsComponent extends Component {
                         }
                         </tbody>
                     </table>
-                    <div class="add ">
-                    {isUserLoggedIn && <button className="btn btn-success" onClick={this.addEventClicked}>Add Event</button>}
                     </div>
-                    </div>
-                    {/* end main content section */}
-                    {/* sidebar */}
-                    {/* <div className="col-sm-2 owner-sidebar">
-                        <h3>Sidebar</h3>
-                    </div> */}
                     </div>
             </div>
             </div>
