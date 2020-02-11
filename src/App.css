@@ -13,6 +13,13 @@ h1, h2, h3, h4, h5, h6 {
   font-family: 'Red Hat Text', 'Open Sans', Arial, sans-serif;
 }
 
+h1, .wrapper h1 {
+  padding: 20px 0 14px 0;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 33px;
+}
+
 table a {
   color: #003267;
 }
@@ -54,13 +61,6 @@ table a {
 }
 
 /* end HEADER */
-
-h1, .wrapper h1 {
-  padding: 20px 0 14px 0;
-  text-transform: uppercase;
-  font-weight: bold;
-  font-size: 31px;
-}
 
 .container {
   background: none;
@@ -181,15 +181,7 @@ button.delete{
 }
 
 /* LIST EVENTS COMPONENT */
-
-.list-events-component h1 {
-  padding-bottom: 0;
-}
-
-.list-events-component h6 {
-  padding-bottom: 20px;
-}
-
+ 
 .event-truckAddress-col{
   width: 200px;
 }

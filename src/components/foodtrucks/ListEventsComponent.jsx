@@ -82,7 +82,7 @@ class ListEventsComponent extends Component {
 
                     <div className="col-sm-12 owner-content">
                     <h1>Today's Trucks {this.state.eventDate}</h1>  
-                    <h6>{this.state.todaysDate}</h6>
+                    {/* <h6>{this.state.todaysDate}</h6> */}
                     <table className="table table-hover">
                         <thead className="thead-dark">
                             <tr>  
