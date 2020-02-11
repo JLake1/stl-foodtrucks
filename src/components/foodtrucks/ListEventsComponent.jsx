@@ -106,7 +106,7 @@ class ListEventsComponent extends Component {
                                          
                                         <td className="event-truckLogo-cell"><a href={"/truck_profile/" + event.truckId}><img src={event.imgUrl} /></a></td>
                                         <td className="event-truckName-cell"><a href={"/truck_profile/" + event.truckId}>{event.truckName}</a></td> 
-                                        <td><a href={"https://www.google.com/search?q=" + event.eventAddress + " " + event.eventCity} >{event.eventAddress}<br />{event.eventCity}</a></td>
+                                        <td className="event-address-cell"><a href={"https://www.google.com/search?q=" + event.eventAddress + " " + event.eventCity} >{event.eventAddress}<br />{event.eventCity}</a></td>
                                         <td>{event.startTime} - {event.endTime}</td>
  
                                     </>) : (<></>)

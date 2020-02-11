@@ -13,6 +13,11 @@ h1, h2, h3, h4, h5, h6 {
   font-family: 'Red Hat Text', 'Open Sans', Arial, sans-serif;
 }
 
+table a {
+  color: #003267;
+}
+
+
 /* HEADER */
 
 
@@ -50,7 +55,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* end HEADER */
 
-h1{
+h1, .wrapper h1 {
   padding: 20px 0 14px 0;
   text-transform: uppercase;
   font-weight: bold;
