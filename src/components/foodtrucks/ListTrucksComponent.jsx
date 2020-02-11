@@ -16,15 +16,10 @@ class ListTrucksComponent extends Component {
         }
 
         this.deleteTruckClicked = this.deleteTruckClicked.bind(this)
-        this.updateTruckClicked = this.updateTruckClicked.bind(this)
-        this.addTruckClicked = this.addTruckClicked.bind(this)
         this.refreshTrucks = this.refreshTrucks.bind(this)
     }
  
     shouldComponentUpdate(nextProps, nextState) {
-        // console.log('should component update')
-        // console.log(nextProps)
-        // console.log(nextState)
         return true
     }
 
@@ -56,23 +51,23 @@ class ListTrucksComponent extends Component {
           )
     }
 
-    updateTruckClicked(id) {
-        console.log('update' + id)  
-        this.props.history.push(`/trucks/${id}`)      
-        // let username = AuthenticationService.getLoggedInUserName()
-        // // console.log(id + " " + username);
-        // TruckDataService.deleteTruck(username, id)
-        //   .then (
-        //       response => {
-        //           this.setState({message : `Delete of truck ${id} Successful`})
-        //           this.refreshTrucks()
-        //       }
-        //   )
-    }
+    // updateTruckClicked(id) {
+    //     console.log('update' + id)  
+    //     this.props.history.push(`/trucks/${id}`)      
+    //     // let username = AuthenticationService.getLoggedInUserName()
+    //     // // console.log(id + " " + username);
+    //     // TruckDataService.deleteTruck(username, id)
+    //     //   .then (
+    //     //       response => {
+    //     //           this.setState({message : `Delete of truck ${id} Successful`})
+    //     //           this.refreshTrucks()
+    //     //       }
+    //     //   )
+    // }
 
-    addTruckClicked(id) {
-        this.props.history.push(`/trucks/-1`)  
-    }
+    // addTruckClicked(id) {
+    //     this.props.history.push(`/trucks/-1`)  
+    // }
     
     render() {
  
@@ -106,10 +101,7 @@ class ListTrucksComponent extends Component {
                                         {console.log(truck, truck.id)}
                                         <td><a href={"/truck_profile/" + truck.urlTag}>{truck.description}</a></td>  
                                         <td>{moment(truck.targetDate).format('lll')}</td>   
-                                        {/* <td><button className="btn update" onClick={() => this.updateTruckClicked(truck.id)}>Update</button></td> */}
-                                        {/* <td><button className="btn update" onClick={() => this.updateTruckClicked(truck.id)}><i class="material-icons-outlined">edit</i></button></td> */}
                                         <td>
-                                        <button className="btn update" onClick={() => this.updateTruckClicked(truck.id)}><i className="material-icons">edit</i></button>
                                             <button className="btn delete" onClick={() => this.deleteTruckClicked(truck.id)}><i className="material-icons">cancel</i></button>
                                         </td>
                                     </tr>
@@ -117,15 +109,9 @@ class ListTrucksComponent extends Component {
                         }
                         </tbody>
                     </table>
-                    <div className="add ">
-                        <button className="btn btn-success" onClick={this.addTruckClicked}>Add Truck</button>
+ 
                     </div>
-                    </div>
-                    {/* end main content section */}
-                    {/* sidebar */}
-                    {/* <div className="col-sm-2 owner-sidebar">
-                        <h3>Sidebar</h3>
-                    </div> */}
+ 
                     </div>
             </div>
             </div>
