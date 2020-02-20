@@ -8,50 +8,43 @@ import HeaderComponent from './HeaderComponent'
 class ListUpcomingEventsComponent extends Component {
     
     constructor(props){ 
-        super(props)
+        super(props);
         this.state = {
             events : [],
             message : null,
             todaysDate: ''
-        }
+        };
 }
 
     componentDidMount() { 
-        var date = new Date().getDate()
-        var month = new Date().getMonth() + 1  
-        var year = new Date().getFullYear()
-        year = year.toString().substr(-2)
-        var todaysDate = month + '-' + date + '-' + year
-        var todaysDate = todaysDate.toString() 
+        var date = new Date().getDate();
+        var month = new Date().getMonth() + 1;
+        var year = new Date().getFullYear();
+        year = year.toString().substr(-2);
+        var todaysDate = month + '-' + date + '-' + year;
+        var todaysDate = todaysDate.toString(); 
 
-        this.refreshEvents() 
-        // let username = AuthenticationService.getLoggedInUserName()
-        let username = 'user'
-        EventDataService.retrieveAllEvents(username)
-          .then(
+        this.refreshEvents();
+        let username = 'user';
+        EventDataService.retrieveAllEvents(username).then(
               response => { 
-                  this.setState({events : response.data}) 
-                  this.setState({username : `${username}`})
-                  this.setState({todaysDate : `${todaysDate}`})
-              }
-          )     
+                  this.setState({events : response.data}); 
+                  this.setState({username : `${username}`});
+                  this.setState({todaysDate : `${todaysDate}`});
+              });     
     }
 
-    refreshEvents() {
-        // let username = AuthenticationService.getLoggedInUserName()
-        let username = 'user'
-        EventDataService.retrieveAllEvents(username)
-          .then(
+    refreshEvents() { 
+        let username = 'user';
+        EventDataService.retrieveAllEvents(username).then(
               response => { 
-                  this.setState({events : response.data})
-              }
-          ) 
+                  this.setState({events : response.data});
+              });
     }
  
-    
     render() {
-        const isUserLoggedIn = AuthenticationService.isUserLoggedIn()
-        let todaysDate = this.state.todaysDate 
+        const isUserLoggedIn = AuthenticationService.isUserLoggedIn();
+        let todaysDate = this.state.todaysDate;
 
         return (
             <div>
@@ -94,8 +87,8 @@ class ListUpcomingEventsComponent extends Component {
             </div>
         </div>
         </div>
-        )
+        );
     }
 }
 
-export default ListUpcomingEventsComponent
+export default ListUpcomingEventsComponent;
