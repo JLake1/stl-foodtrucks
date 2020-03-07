@@ -213,7 +213,7 @@ button.delete{
 
 .event-truckName-cell a {
   font-family: 'Red Hat Text', 'Open Sans', Arial, sans-serif;
-  color: #003267;
+  color: #2d2d2d;
 }
 
 /* DIRECTORY */
@@ -223,7 +223,9 @@ button.delete{
   width: 300px;
   height: 280px; 
   padding: 22px 0 18px 0;
-  margin-bottom: 14px;
+  margin: 17px 20px; 
+  border: 3px solid #e8e8e8;
+  border-radius: 3px;
 }
 
 .directory-tile:hover {
@@ -234,11 +236,11 @@ button.delete{
   font-family: 'Red Hat Text', 'Open Sans', Arial, sans-serif;
   font-size: 20px;
   font-weight: bold;
-  color: #003267;
+  color: #2d2d2d;
 }
 
 .directory-tile h4 { 
-  color: #343a40;
+  color: #2d2d2d;
   width: fit-content; 
   display: block;
   margin: 8px auto 0 auto;
