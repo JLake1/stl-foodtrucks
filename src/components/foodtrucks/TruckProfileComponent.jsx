@@ -1,43 +1,41 @@
-import React, {Component} from 'react' 
-import moment from 'moment'
-import { Formik, Form, Field, ErrorMessage } from 'formik'  
-import TruckDataService from '../../api/foodtrucks/TruckDataService.js' 
-import HeaderComponent from './HeaderComponent'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faFacebookF, faTwitter, faYelp } from '@fortawesome/free-brands-svg-icons'
-import AuthenticationService from './AuthenticationService.js'
+import React, {Component} from 'react';
+import moment from 'moment';
+import { Formik, Form} from 'formik';
+import TruckDataService from '../../api/foodtrucks/TruckDataService.js'; 
+import HeaderComponent from './HeaderComponent';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faFacebookF, faTwitter, faYelp } from '@fortawesome/free-brands-svg-icons';
+import AuthenticationService from './AuthenticationService.js';
 
 class TruckProfileComponent extends Component {
     constructor(props) {
-        super(props)
+        super(props);
         this.state = {
             truck : "", 
             // id : 20002, 
             description : "",
             targetDate : moment(new Date()).format('YYYY-MM-DD') 
-        }
- 
+        };
         this.onSubmit = this.onSubmit.bind(this)
-
     }
 
     componentDidMount() {
-        var truckUrl = this.props.history.location.pathname
-        var truckId = truckUrl.replace("/truck_profile/", "")
-        this.state.id = truckId
+        var truckUrl = this.props.history.location.pathname;
+        var truckId = truckUrl.replace("/truck_profile/", "");
+        this.state.id = truckId;
 
         TruckDataService.retrieveTruckProfile(truckId)
           .then(
               response => { 
                   this.setState({ 
                     truck : response.data
-                    })   
+                    });   
               }
-          )  
+          );  
     }
  
     onSubmit(values) {
-        let username = AuthenticationService.getLoggedInUserName()
+        let username = AuthenticationService.getLoggedInUserName();
  
         let truck = {
                 id: values.id, 
@@ -49,18 +47,16 @@ class TruckProfileComponent extends Component {
             TruckDataService.updateTruck(username, truck.id, truck) 
                 .then(
                     () => { this.props.history.push('/trucks') }
-                )
+                );
         }  
-
- 
     }
 
     render() { 
-        const isUserLoggedIn = AuthenticationService.isUserLoggedIn()
+        const isUserLoggedIn = AuthenticationService.isUserLoggedIn();
 
-        let id = this.state.truck.id 
-        let urlTag = this.state.truck.id
-        let description = this.state.truck.truckName
+        let id = this.state.truck.id; 
+        let urlTag = this.state.truck.id;
+        let description = this.state.truck.truckName;
         
         return (
             <div>
@@ -117,13 +113,11 @@ class TruckProfileComponent extends Component {
                     <a href="#" target="_blank">
                         <FontAwesomeIcon icon={faTwitter} />
                     </a>              
-                </div>
-                
+                </div>                
             </div>
-
             </div>
-        )
+        );
     }
 }
 
-export default TruckProfileComponent
+export default TruckProfileComponent;
