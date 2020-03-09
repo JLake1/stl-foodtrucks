@@ -1,50 +1,41 @@
-import React, {Component} from 'react'
-import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
-import AuthenticatedRoute from './AuthenticatedRoute.jsx'
-import AuthenticationService from './AuthenticationService.js'
-import LoginComponent from './LoginComponent.jsx'
-import LogoutComponent from './LogoutComponent.jsx'
-import WelcomeComponent from './WelcomeComponent.jsx'
-import BrowseTrucksComponent from './BrowseTrucksComponent.jsx'
-import TruckProfileComponent from './TruckProfileComponent.jsx'
-import ListTrucksComponent from './ListTrucksComponent.jsx'
-import ListEventsComponent from './ListEventsComponent.jsx'
-import AddEventComponent from './AddEventComponent.jsx'
-import ListUpcomingEventsComponent from './ListUpcomingEventsComponent.jsx'  
-import FooterComponent from './FooterComponent.jsx'
-import TruckComponent from './TruckComponent.jsx'
-import ErrorComponent from './ErrorComponent.jsx'  
+import React, {Component} from 'react';
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+import AuthenticatedRoute from './AuthenticatedRoute.jsx';
+import AuthenticationService from './AuthenticationService.js';
+import LoginComponent from './LoginComponent.jsx';
+import LogoutComponent from './LogoutComponent.jsx';
+import WelcomeComponent from './WelcomeComponent.jsx';
+import BrowseTrucksComponent from './BrowseTrucksComponent.jsx';
+import TruckProfileComponent from './TruckProfileComponent.jsx';
+import ListTrucksComponent from './ListTrucksComponent.jsx';
+import ListEventsComponent from './ListEventsComponent.jsx';
+import AddEventComponent from './AddEventComponent.jsx';
+import ListUpcomingEventsComponent from './ListUpcomingEventsComponent.jsx';  
+import FooterComponent from './FooterComponent.jsx';
+import TruckComponent from './TruckComponent.jsx';
+import ErrorComponent from './ErrorComponent.jsx';  
  
 class FoodtrucksApp extends Component {
     
     constructor(props){ 
-        super(props)
+        super(props);
         this.state = { 
             data : "Hello!"
-        }
- 
+        };
     }
  
     state = { 
-        mes: "" 
-    }
+        mes: ""
+    };
     
     callbackFunction = (childData) => {
-      this.setState({mes: childData})
-      this.setState({data: childData})
-    }
- 
-    // componentDidUpdate(prevState) { 
-    //     if (this.state.data !== prevState.data) {
-    //         this.fetchData(this.props.data);
-    //         this.setState({data: "new"})
-    //       }
-    //     console.log("App did update")
-    // }
+      this.setState({mes: childData});
+      this.setState({data: childData});
+    };
 
     render() {
 
-        const isUserLoggedIn = AuthenticationService.isUserLoggedIn()
+        const isUserLoggedIn = AuthenticationService.isUserLoggedIn();
  
         return (
             
@@ -67,13 +58,11 @@ class FoodtrucksApp extends Component {
                         
                         <FooterComponent/>
 
-                        {/* <HeaderComponent testFromParent={testUpdate} parentCallback = {this.callbackFunction}  /> */}
-
                     </>
                 </Router> 
             </div>
-        )
+        );
     }
 }
 
-export default FoodtrucksApp
+export default FoodtrucksApp;
