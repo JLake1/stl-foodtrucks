@@ -14,8 +14,26 @@ class HeaderComponent extends Component {
     }
 
     componentDidMount() {
-        let username = AuthenticationService.getLoggedInUserName()
+        this.refreshEvents() 
+        let username = AuthenticationService.getLoggedInUserName();
+        EventDataService.retrieveAllEvents(username)
+          .then(
+              response => { 
+                  this.setState({events : response.data}) ;
+                  this.setState({username : `${username}`});                    
+              }
+          );
      }
+ 
+    refreshEvents() {
+        let username = AuthenticationService.getLoggedInUserName();
+        EventDataService.retrieveAllEvents(username)
+          .then(
+              response => { 
+                  this.setState({events : response.data});
+              }
+          ); 
+    }
  
     render() {
 
