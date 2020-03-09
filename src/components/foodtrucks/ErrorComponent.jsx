@@ -1,7 +1,7 @@
-import React from 'react'
+import React from 'react';
 
 function ErrorComponent() {
-    return <div> An Error Occurred.</div>
+    return <div> An Error Occurred.</div>;
 }
 
-export default ErrorComponent
+export default ErrorComponent;
