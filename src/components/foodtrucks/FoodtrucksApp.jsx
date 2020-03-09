@@ -12,7 +12,6 @@ import ListEventsComponent from './ListEventsComponent.jsx';
 import AddEventComponent from './AddEventComponent.jsx';
 import ListUpcomingEventsComponent from './ListUpcomingEventsComponent.jsx';  
 import FooterComponent from './FooterComponent.jsx';
-import TruckComponent from './TruckComponent.jsx';
 import ErrorComponent from './ErrorComponent.jsx';  
  
 class FoodtrucksApp extends Component {
@@ -46,7 +45,6 @@ class FoodtrucksApp extends Component {
                         <Route path="/" exact component={ListEventsComponent}  dataFromParent={this.state.data} parentCallback={this.callbackFunction} test="3" />
                         <Route path="/login" component={LoginComponent}/>
                         <AuthenticatedRoute path="/welcome/:name" component={WelcomeComponent}/>
-                        <AuthenticatedRoute path="/trucks/:id" component={TruckComponent}/>
                         <Route path="/browse" component={BrowseTrucksComponent}/>
                         <Route path="/truck_profile" component={TruckProfileComponent}/> 
                         <Route path="/add-event" component={AddEventComponent}  />
