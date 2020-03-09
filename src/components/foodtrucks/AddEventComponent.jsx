@@ -1,12 +1,9 @@
-import React, {Component} from 'react'  
-import moment from 'moment';
-import { Formik, Form, Field, ErrorMessage } from 'formik'  
-import TruckDataService from '../../api/foodtrucks/TruckDataService.js' 
-import EventDataService from '../../api/foodtrucks/EventDataService.js' 
-import HeaderComponent from './HeaderComponent'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faFacebookF, faTwitter, faYelp } from '@fortawesome/free-brands-svg-icons'
-import AuthenticationService from './AuthenticationService.js'
+import React, {Component} from 'react'; 
+import { Formik, Form, Field, ErrorMessage } from 'formik';
+import TruckDataService from '../../api/foodtrucks/TruckDataService.js';
+import EventDataService from '../../api/foodtrucks/EventDataService.js';
+import HeaderComponent from './HeaderComponent';
+import AuthenticationService from './AuthenticationService.js';
 
 class AddEventComponent extends Component {
     constructor(props) {
