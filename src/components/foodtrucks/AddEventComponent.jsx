@@ -109,8 +109,8 @@ class AddEventComponent extends Component {
                 </div>             
             </div>
             </div>
-        )
-    };
+        );
+    }
 }
 
 export default AddEventComponent;
