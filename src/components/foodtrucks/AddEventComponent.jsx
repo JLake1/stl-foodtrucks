@@ -10,22 +10,19 @@ import AuthenticationService from './AuthenticationService.js'
 
 class AddEventComponent extends Component {
     constructor(props) {
-        super(props)
+        super(props);
         this.state = {
             truck : "", 
             trucks : [], 
             id: this.props.match.params.id
-        }
- 
-        this.onSubmit = this.onSubmit.bind(this)
-
+        };
+        this.onSubmit = this.onSubmit.bind(this);
     }
 
     componentDidMount() {
-        var truckUrl = this.props.history.location.pathname
-        var truckId = truckUrl.replace("/add-event/", "")
-        this.state.id = truckId
-        console.log(this.state.id)
+        var truckUrl = this.props.history.location.pathname;
+        var truckId = truckUrl.replace("/add-event/", "");
+        this.state.id = truckId;
 
         TruckDataService.retrieveTruckProfile(truckId)
           .then(
@@ -34,18 +31,15 @@ class AddEventComponent extends Component {
                     truck : response.data
                     })   
               }
-          )  
+          ); 
     }
  
     onSubmit(values) { 
-        let username = 'user'
-        
-        let date = values.eventDate.slice(5)
-        let year = values.eventDate.slice(2,4)
-        let eventDate = date + '-' + year
+        let username = 'user';
+        let date = values.eventDate.slice(5);
+        let year = values.eventDate.slice(2,4);
+        let eventDate = date + '-' + year;
          
-        console.log("Date: ", eventDate)
-
         let event = { 
                 truckName: this.state.truck.truckName,
                 imgUrl: this.state.truck.imgUrl, 
@@ -57,36 +51,18 @@ class AddEventComponent extends Component {
                 imgUrl: this.state.truck.imgUrl, 
                 truckId: this.state.truck.id, 
                 username: 'user' 
-        }
+        };
 
-        
- 
         if (event) { 
-            console.log("IF", values)
-            console.log(event)
-            console.log(typeof event.startTime)
             EventDataService.updateEvent(username, this.state.id, event)
                 .then(
                     () => { this.props.history.push('/upcoming-events') }
-                )
+                );
         } 
-        // else {
-        //     console.log("ELSE")
-        //     EventDataService.createEvent(username, event)
-        //         .then(
-        //             () => { this.props.history.push('/upcoming-events') }
-        //         )
-        // }
-
     }
 
     render() { 
-        const isUserLoggedIn = AuthenticationService.isUserLoggedIn()
-
-        let id = this.state.truck.id 
-        let urlTag = this.state.truck.id
-        let description = this.state.truck.truckName
-        let {truckName,targetDate, trucks} = this.state
+        const isUserLoggedIn = AuthenticationService.isUserLoggedIn();
         
         return (
             <div>
@@ -97,7 +73,6 @@ class AddEventComponent extends Component {
            
                 <div className="container add-form">
                     <Formik
-                        // initialValues={{truckName,description,targetDate}}
                         onSubmit={this.onSubmit}
                         validateOnChange={false}
                         validateOnBlur={false}
@@ -114,7 +89,6 @@ class AddEventComponent extends Component {
                                         <label>Street Address</label> 
                                         <Field className="form-control" type="text" name="street"/>
                                     </fieldset>
-
                                     <fieldset>
                                         <label>Start Time</label> 
                                         <Field className="form-control" type="time" name="startTime"/>
@@ -129,25 +103,17 @@ class AddEventComponent extends Component {
                                         <label>Date</label> 
                                         <Field className="form-control" type="date" name="eventDate"/>
                                     </fieldset>
-
-                                    
-                                        
-
                                     <button type="submit" className="btn btn-success">Save</button>
                                 </Form>
  
                             )
                         }
                     </Formik>
-                </div>
-     
- 
-                
+                </div>             
             </div>
-
             </div>
         )
-    }
+    };
 }
 
-export default AddEventComponent
+export default AddEventComponent;
