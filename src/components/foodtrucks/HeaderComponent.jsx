@@ -1,54 +1,25 @@
-import React, {Component} from 'react'
-import {Link} from 'react-router-dom'
-import AuthenticationService from './AuthenticationService.js'
-import EventDataService from '../../api/foodtrucks/EventDataService.js'
-import profile from '../../assets/img/profile-icon.png' 
-
+import React, {Component} from 'react';
+import {Link} from 'react-router-dom';
+import AuthenticationService from './AuthenticationService.js';
+import EventDataService from '../../api/foodtrucks/EventDataService.js';
+import profile from '../../assets/img/profile-icon.png';
 
 class HeaderComponent extends Component {
-
     constructor(props){ 
-        super(props)
+        super(props);
         this.state = {
             events : [],
             message : null 
-        } 
+        };
     }
-
-    // sendData = () => {
-    //      this.props.parentCallback("Hey Popsie, How’s it going?")
-    // }
-
- 
 
     componentDidMount() {
-
-        // this.sendData()
-
-        this.refreshEvents() 
         let username = AuthenticationService.getLoggedInUserName()
-        EventDataService.retrieveAllEvents(username)
-          .then(
-              response => { 
-                  this.setState({events : response.data}) 
-                  this.setState({username : `${username}`})                     
-              }
-          )
      }
- 
-    refreshEvents() {
-        let username = AuthenticationService.getLoggedInUserName()
-        EventDataService.retrieveAllEvents(username)
-          .then(
-              response => { 
-                  this.setState({events : response.data}) 
-              }
-          ) 
-    }
  
     render() {
 
-        const isUserLoggedIn = AuthenticationService.isUserLoggedIn()
+        const isUserLoggedIn = AuthenticationService.isUserLoggedIn();
  
         return (
             <header>
@@ -75,12 +46,11 @@ class HeaderComponent extends Component {
                             {isUserLoggedIn && <li><Link className="nav-link" to="/logout" onClick={AuthenticationService.logout}>Logout</Link></li>}
                         </ul>
                         </div>
-
                     </div>
                 </nav>
             </header>
-        )
+        );
     }
 }
 
-export default HeaderComponent
+export default HeaderComponent;
