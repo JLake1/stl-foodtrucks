@@ -1,4 +1,4 @@
-import React, {Component} from 'react'
+import React, {Component} from 'react';
 
 class LogoutComponent extends Component {
     render() {
@@ -9,8 +9,8 @@ class LogoutComponent extends Component {
                     Thank you for using our application.
                 </div>
             </>
-        )
+        );
     }
 }
 
-export default LogoutComponent
+export default LogoutComponent;
