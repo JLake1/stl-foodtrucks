@@ -4,7 +4,6 @@ import AuthenticatedRoute from './AuthenticatedRoute.jsx';
 import AuthenticationService from './AuthenticationService.js';
 import LoginComponent from './LoginComponent.jsx';
 import LogoutComponent from './LogoutComponent.jsx';
-import WelcomeComponent from './WelcomeComponent.jsx';
 import BrowseTrucksComponent from './BrowseTrucksComponent.jsx';
 import TruckProfileComponent from './TruckProfileComponent.jsx';
 import ListTrucksComponent from './ListTrucksComponent.jsx';
@@ -44,7 +43,6 @@ class FoodtrucksApp extends Component {
                         <Switch test="switch">
                         <Route path="/" exact component={ListEventsComponent}  dataFromParent={this.state.data} parentCallback={this.callbackFunction} test="3" />
                         <Route path="/login" component={LoginComponent}/>
-                        <AuthenticatedRoute path="/welcome/:name" component={WelcomeComponent}/>
                         <Route path="/browse" component={BrowseTrucksComponent}/>
                         <Route path="/truck_profile" component={TruckProfileComponent}/> 
                         <Route path="/add-event" component={AddEventComponent}  />
