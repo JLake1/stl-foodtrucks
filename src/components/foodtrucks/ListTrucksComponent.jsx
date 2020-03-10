@@ -36,7 +36,7 @@ class ListTrucksComponent extends Component {
         TruckDataService.deleteTruck(username, id)
           .then (
               response => {
-                  this.setState({message : `Delete of truck ${id} Successful`});
+                  this.setState({message : `Truck Deleted`});
                   this.refreshTrucks();
               }
           );
