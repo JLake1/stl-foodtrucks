@@ -36,12 +36,35 @@ class AddEventComponent extends Component {
         let date = values.eventDate.slice(5);
         let year = values.eventDate.slice(2,4);
         let eventDate = date + '-' + year;
-         
+        let amPm = "am";
+
+        let eventStartHour = values.startTime.slice(0,2);
+        eventStartHour = parseInt(eventStartHour);
+        let eventStartMin = values.startTime.slice(3,5);
+
+        let eventEndHour = values.endTime.slice(0,2);
+        eventEndHour = parseInt(eventEndHour);
+        let eventEndMin = values.endTime.slice(3,5);
+
+        if (eventStartHour > 12) {
+            eventStartHour = eventStartHour - 12;
+            amPm = "pm";
+        }         
+        let startTime = eventStartHour.toString() + ":" + eventStartMin + amPm;
+
+        if (eventEndHour > 12) {
+            eventEndHour = eventEndHour - 12;
+            amPm = "pm";
+        }      
+        let endTime = eventEndHour.toString() + ":" + eventEndMin + amPm;
+
+        console.log(startTime, endTime)
+
         let event = { 
                 truckName: this.state.truck.truckName,
                 imgUrl: this.state.truck.imgUrl, 
-                startTime: values.startTime,
-                endTime: values.endTime, 
+                startTime: startTime,
+                endTime: endTime, 
                 eventDate: eventDate,
                 eventAddress: values.street,
                 eventCity: "St. Louis, MO",
