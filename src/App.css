@@ -25,10 +25,10 @@ h1, h2, h3, h4, h5, h6 {
 
 h1, .wrapper h1 {
   padding: 20px 0;
-  text-transform: uppercase;
-  font-family: Helvetica Neue,Helvetica,Arial,sans-serif; 
-  font-size: 36px;
-  font-weight: 300;
+  font-weight: 700;
+  font-family: "Open Sans Condensed";
+  text-transform: none;
+  font-size: 45px;
 }
 
 table a {

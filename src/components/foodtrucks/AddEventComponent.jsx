@@ -1,4 +1,5 @@
 import React, {Component} from 'react'; 
+import moment from 'moment';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import TruckDataService from '../../api/foodtrucks/TruckDataService.js';
 import EventDataService from '../../api/foodtrucks/EventDataService.js';
@@ -14,6 +15,7 @@ class AddEventComponent extends Component {
             id: this.props.match.params.id
         };
         this.onSubmit = this.onSubmit.bind(this);
+        this.validate = this.validate.bind(this);
     }
 
     componentDidMount() {
@@ -29,6 +31,31 @@ class AddEventComponent extends Component {
                     })   
               }
           ); 
+    }
+
+    validate(values) {
+        let errors = {};
+        
+        if(!values.street) {
+            errors.street = 'Enter a street address';
+        } else if(values.street.length<5) {
+            errors.street = 'Address must be at least 5 characters';
+        }
+
+        if(!values.startTime) { 
+            errors.startTime = 'Enter a start time';
+            console.log(errors.startTime)
+        }
+
+        if(!values.endTime) { 
+            errors.endTime = 'Enter an end time';
+        }
+
+        if(!values.eventDate) { 
+            errors.eventDate = 'Enter a valid date';
+        }
+ 
+        return errors
     }
  
     onSubmit(values) { 
@@ -58,8 +85,6 @@ class AddEventComponent extends Component {
         }      
         let endTime = eventEndHour.toString() + ":" + eventEndMin + amPm;
 
-        console.log(startTime, endTime)
-
         let event = { 
                 truckName: this.state.truck.truckName,
                 imgUrl: this.state.truck.imgUrl, 
@@ -83,6 +108,7 @@ class AddEventComponent extends Component {
 
     render() { 
         const isUserLoggedIn = AuthenticationService.isUserLoggedIn();
+        let {street, startTime, endTime, eventDate} = this.state; 
         
         return (
             <div>
@@ -93,6 +119,7 @@ class AddEventComponent extends Component {
            
                 <div className="container add-form">
                     <Formik
+                        initialValues={{street, startTime, endTime, eventDate}}
                         onSubmit={this.onSubmit}
                         validateOnChange={false}
                         validateOnBlur={false}
@@ -102,26 +129,27 @@ class AddEventComponent extends Component {
                         {
                             (props) => (
                                 <Form>
-                                    <ErrorMessage name="description" component="div" className="alert alert-warning"/>
-                                    <ErrorMessage name="targetDate" component="div" className="alert alert-warning"/>
-                                  
                                     <fieldset>
                                         <label>Street Address</label> 
                                         <Field className="form-control" type="text" name="street"/>
+                                        <ErrorMessage name="street" component="div" className="alert alert-danger" />
                                     </fieldset>
                                     <fieldset>
                                         <label>Start Time</label> 
                                         <Field className="form-control" type="time" name="startTime"/>
+                                        <ErrorMessage name="startTime" component="div" className="alert alert-danger" />
                                     </fieldset>
 
                                     <fieldset>
                                         <label>End Time</label> 
                                         <Field className="form-control" type="time" name="endTime"/>
+                                        <ErrorMessage name="endTime" component="div" className="alert alert-danger" />
                                     </fieldset>
 
                                     <fieldset>
                                         <label>Date</label> 
                                         <Field className="form-control" type="date" name="eventDate"/>
+                                        <ErrorMessage name="eventDate" component="div" className="alert alert-danger" />
                                     </fieldset>
                                     <button type="submit" className="btn btn-success">Save</button>
                                 </Form>
