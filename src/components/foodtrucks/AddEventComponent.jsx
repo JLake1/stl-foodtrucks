@@ -115,7 +115,7 @@ class AddEventComponent extends Component {
             <HeaderComponent></HeaderComponent> 
 
             <div className="wrapper truck-profile-component"> 
-                <h1>Add Event <br />{this.state.truck.truckName}</h1>
+                <h1>Add Event </h1>
            
                 <div className="container add-form">
                     <Formik
@@ -129,22 +129,29 @@ class AddEventComponent extends Component {
                         {
                             (props) => (
                                 <Form>
+                                    <h3>{this.state.truck.truckName}</h3>
                                     <fieldset>
                                         <label>Street Address</label> 
                                         <Field className="form-control" type="text" name="street"/>
                                         <ErrorMessage name="street" component="div" className="alert alert-danger" />
                                     </fieldset>
+
+                                    <div className="row">
+                                    <div className="col-sm-6">
                                     <fieldset>
                                         <label>Start Time</label> 
                                         <Field className="form-control" type="time" name="startTime"/>
                                         <ErrorMessage name="startTime" component="div" className="alert alert-danger" />
                                     </fieldset>
-
+                                    </div>
+                                    <div className="col-sm-6">
                                     <fieldset>
                                         <label>End Time</label> 
                                         <Field className="form-control" type="time" name="endTime"/>
                                         <ErrorMessage name="endTime" component="div" className="alert alert-danger" />
                                     </fieldset>
+                                    </div>
+                                    </div>
 
                                     <fieldset>
                                         <label>Date</label> 
