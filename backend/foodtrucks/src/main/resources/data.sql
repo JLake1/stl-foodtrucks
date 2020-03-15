@@ -7,7 +7,7 @@ values(20006, 'joe', 'Guerilla Street Food', sysdate(), false, '20006');
 insert into truck(id, username, description, target_date, is_done, url_tag)
 values(20009, 'joe', 'Mission Taco Truck ', sysdate(), false, '20009');
 
-insert into event(id, username, truck_name, event_address, event_city, event_date, start_time, end_time, truck_id, img_url) values(30001, 'user', 'Buzz''s Hawaiian Grill','1234 Main Street','St. Louis, MO 63104','03-9-20','11:00am','2:00pm','20001','https://i.imgur.com/FVi7ikp.png');
+insert into event(id, username, truck_name, event_address, event_city, event_date, start_time, end_time, truck_id, img_url) values(30001, 'user', 'Buzz''s Hawaiian Grill','1234 Main Street','St. Louis, MO 63104','03-15-20','11:00am','2:00pm','20001','https://i.imgur.com/FVi7ikp.png');
 insert into event(id, username, truck_name, event_address, event_city, event_date, start_time, end_time, truck_id, img_url) values(30002, 'user', 'Cheese Shack Food Truck','32 Jefferson Ave','St. Louis, MO 63104','03-9-20','12:00pm','3:00pm','20002','https://i.imgur.com/isJ3USj.png');
 insert into event(id, username, truck_name, event_address, event_city, event_date, start_time, end_time, truck_id, img_url) values(30003, 'user', 'Destination  Desserts','245 S. Central Ave','Clayton, MO 63105','03-10-20','12:00pm','3:30pm','20003','https://i.imgur.com/DBUUTsg.png');
 insert into event(id, username, truck_name, event_address, event_city, event_date, start_time, end_time, truck_id, img_url) values(30004, 'user', 'Essentially Fries','1 Industrial Circle','Chesterfield, MO 63345','03-10-20','1:00pm','4:00pm','20004','https://i.imgur.com/pMMcldr.png');
