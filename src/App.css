@@ -315,7 +315,7 @@ button.delete{
   /* border: solid 1px #cacaca; */
   max-width: 400px;
   display: block;
-  margin: 27px auto 0px;
+  margin: 40px auto;
   border-radius: 3px;
   background-color: #343a40;
   margin-top: 40px;
@@ -328,7 +328,7 @@ button.delete{
 .categories-head h5{
   font-weight: normal;
   padding: 8px 14px;
-  margin-bottom: 0
+  margin-bottom: 0;
 }
 
 .categories-body {

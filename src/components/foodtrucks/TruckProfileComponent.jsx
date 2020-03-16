@@ -69,6 +69,15 @@ class TruckProfileComponent extends Component {
                     <img src={this.state.truck.imgUrl} />
                 </div>
 
+                <div className="categories-wrapper">
+                    <div className="categories-head">
+                    <h5>Categories</h5>
+                    </div>
+                    <div className="categories-body">
+                    {this.state.truck.categories}
+                    </div>
+                </div>
+
                 {isUserLoggedIn &&
                 <div className="add-event-btn-form">
                     <Formik 
@@ -92,15 +101,6 @@ class TruckProfileComponent extends Component {
                             Add Event
                         </button>
                     </a>
-                </div>
- 
-                <div className="categories-wrapper">
-                <div className="categories-head">
-                <h5>Categories</h5>
-                </div>
-                <div className="categories-body">
-                {this.state.truck.categories}
-                </div>
                 </div>
 
                 <div className="social-icons">
