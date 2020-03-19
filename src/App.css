@@ -82,7 +82,7 @@ table a {
 }
 
 .wrapper {
-  background: #f3f9ff;
+  background: #f7f7f7;
   padding-bottom: 26px;
 
     /* Firefox */
@@ -223,22 +223,29 @@ button.delete{
 .directory-tile {
   display: inline-block;
   width: 300px;
-  height: 280px; 
-  padding: 22px 0 18px 0;
+  min-height: 289px; 
+  padding: 0px 0 8px 0;
   margin: 17px 20px; 
-  border: 3px solid #e8e8e8;
-  border-radius: 3px;
+  border: 3px solid #343a40;
+  border-top-width: 0;
 }
 
 .directory-tile:hover {
-  background-color: #f3f3f3;
+  background-color: #f2f2f2;
 }
 
-.directory-tile h3, .directory-tile a {
-  font-family: 'Red Hat Text', 'Open Sans', Arial, sans-serif;
-  font-size: 20px;
-  font-weight: bold;
-  color: #2d2d2d;
+.directory-tile h3 {
+  background: #343a40;
+  font-weight: 300;
+  font-size: 28px;
+  font-family: 'Open Sans Condensed';
+  color: #ffffff;
+  padding: 8px;
+  margin-bottom: 24px;
+}
+
+.directory-tile a {
+  color: #ffffff;
 }
 
 .directory-tile h4 { 
@@ -246,16 +253,17 @@ button.delete{
   width: fit-content; 
   display: block;
   margin: 8px auto 0 auto;
-  padding: 4px 8px;
+  padding: 9px 8px 4px;
   font-weight: normal;
   font-size: 12px;  
+  border-top: 1px solid lightgray;
+  width: 252px;
 }
 
 .directory-tile img {
-  max-height: 170px;
-  border: 3px solid #f3f3f3;
-  border-radius: 10px;
+  max-height: 170px; 
   padding: 2px;
+  margin-bottom: 14px;
 }
 
 /* TRUCK PROFILE COMPONENT */
