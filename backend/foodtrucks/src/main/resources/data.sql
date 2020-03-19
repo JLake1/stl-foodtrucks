@@ -17,7 +17,7 @@ insert into event(id, username, truck_name, event_address, event_city, event_dat
 
 insert into truck_profile(id, truck_name, categories, img_url) values(20001,'Buzz''s Hawaiian Grill','Asian Fusion, Hawaiian, Vegetarian-friendly','https://i.imgur.com/FVi7ikp.png');
 insert into truck_profile(id, truck_name, categories, img_url) values(20002,'Cheese Shack Food Truck','Sandwiches, Comfort Food','https://i.imgur.com/isJ3USj.png');
-insert into truck_profile(id, truck_name, categories, img_url) values(20003,'Destination  Desserts','Desserts, Cookies, Cupcakes, Smoothies, Coffee','https://i.imgur.com/DBUUTsg.png');
+insert into truck_profile(id, truck_name, categories, img_url) values(20003,'Destination  Desserts','Desserts, Cookies, Cupcakes, Coffee','https://i.imgur.com/DBUUTsg.png');
 insert into truck_profile(id, truck_name, categories, img_url) values(20004,'Essentially Fries','Fries, Comfort Food','https://i.imgur.com/pMMcldr.png');
 insert into truck_profile(id, truck_name, categories, img_url) values(20005,'Go! Gyro! Go!','Greek, Mediterranean, Gyros, Wraps','https://i.imgur.com/cpKFZ9J.png');
 insert into truck_profile(id, truck_name, categories, img_url) values(20006,'Guerilla Street Food','Asian Fusion, Filipino, Rice Bowls','https://i.imgur.com/Lc1sI9Q.png');
